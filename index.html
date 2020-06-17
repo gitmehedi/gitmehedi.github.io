@@ -1,830 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en"> 
 <head>
+    <title>Swapon-Blog</title>
+    
     <!-- Meta -->
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="HTML, CSS, JS, Template">
-    <meta name="author" content="Revol Themes">
-    <title>Portfolio</title>
-    <!-- Favicons
-    <link rel="icon" href="assets/images/logo.png"> -->
-    <!-- Font -->
-    <link href="https://fonts.googleapis.com/css?family=Rouge+Script|Open+Sans:400,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Normalization -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <!-- Animate CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+	<script defer src="assets/fontawesome/js/all.min.js"></script>
+    
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="assets/css/theme-1.css">
 
-<body data-spy="scroll" data-target=".navbar" data-offset="56" id="top">
-    <header class="header">
-        <div class="top-bar container-fluid">
-            <div class="actions">
-                <a class="btn d-none d-md-inline-block" href="mailto:sakib042@gmail.com"><i class="fa fa-paper-plane"
-                        aria-hidden="true"></i> Mail Me</a>
-                <a class="btn" href="assets/CV_Md_Nazmus_Sakib.pdf" target="_blank"
-                    data-target="assets/CV_Md_Nazmus_Sakib.pdf" download><i class="fa fa-download"
-                        aria-hidden="true"></i>
-                    Download Resume</a>
-            </div>
-            <!--//actions-->
-            <ul class="social list-inline">
-                <li class="list-inline-item"><a target="_blank"
-                        href="https://www.linkedin.com/in/md-nazmus-sakib-9583b250/"><i class="fa fa-linkedin"
-                            aria-hidden="true"></i></a></li>
-                <li class="list-inline-item"><a target="_blank" href="https://www.twitter.com/sakib042"><i
-                            class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                <!-- <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
-                <li class="list-inline-item"><a target="_blank" href="https://www.github.com/sakib042"><i
-                            class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-                <!-- <li class="list-inline-item"><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li> -->
-            </ul>
-        </div>
-        <div class="intro">
-            <div class="container profile">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12">
-                        <div class="box wow fadeIn" data-wow-duration="0.5s">
-                            <div id="myprofile" class="float-right">
-                                <img alt="profile-image" class="img-responsive" src="img/NS.jpg">
-                                <div class="slant"></div>
-                            </div>
-                            <div class="info-headings">
-                                <h4 class="text-uppercase text-left">Nazmus Sakib</h4>
-                                <h6 class="text-capitalize text-left">Senior Frontend Developer</h6>
-                                <!-- <ul class="profile-list">
-                                        <li class="clearfix">
-                                            <span class="title"><i class="material-icons">email</i></span>
-                                            <span class="content">sakib042@gmail.com</span>
-                                        </li>
-                                        <li class="clearfix">
-                                            <span class="title"><i class="material-icons">phone</i></span>
-                                            <span class="content">+8801719454356</span>
-                                        </li>
-                                        <li class="clearfix">
-                                            <span class="title"><i class="fa fa-skype" aria-hidden="true"></i></span>
-                                            <span class="content">sakib042</span>
-                                        </li>
-                                        <li class="clearfix">
-                                            <span class="title"><i class="fa fa-linkedin"></i></span>
-                                            <span class="content">sakib042@gmail.com</span>
-                                        </li>
-                                        <li class="clearfix">
-                                            <span class="title"><i class="material-icons">place</i></span>
-                                            <span class="content">House No: 17, Road No: 34, Pollobi, Dhaka,
-                                                Bangladesh</span>
-                                        </li>
-                                    </ul> -->
-                                <ul class="profile-list">
-                                    <li class="clearfix">
-                                        <span class="title"><i class="material-icons">email</i></span>
-                                        <span class="content">
-                                            <a href="mailto:sakib042@gmail.com">sakib042@gmail.com</a>
-                                        </span>
-                                    </li>
-                                    <li class="clearfix">
-                                        <span class="title"><i class="material-icons">phone</i></span>
-                                        <span class="content">+8801719454356</span>
-                                    </li>
-                                    <li class="clearfix">
-                                        <span class="title"><i class="fa fa-skype" aria-hidden="true"></i></span>
-                                        <span class="content">sakib042</span>
-                                    </li>
-                                    <li class="clearfix">
-                                        <span class="title"><i class="fa fa-linkedin"></i></span>
-                                        <span class="content">
-                                            <a target="_blank"
-                                                href="https://www.linkedin.com/in/md-nazmus-sakib-9583b250/">Md. Nazmus
-                                                Sakib</a>
-                                        </span>
-                                    </li>
+</head> 
 
-                                    <li class="clearfix">
-                                        <span class="title"><i class="material-icons">place</i></span>
-                                        <span class="content">House No: 17, Road No: 34, Pollobi, Dhaka,
-                                            Bangladesh</span>
-                                    </li>
-                                </ul>
+<body>
+    
+    <header class="header text-center">	    
+	    <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">Anthony's Blog</a></h1>
+        
+	    <nav class="navbar navbar-expand-lg navbar-dark" >
+           
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			</button>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="contact-info">
-            <div class="container text-center">
-                <ul class="list-inline">
-                    <li class="email list-inline-item"><i class="fa fa-envelope"></i><a href="mailto:someone@example.com">sakib042@gmail.com</a></li>
-                    <li class="list-inline-item"><i class="fa fa-phone"></i> <a href="tel: 0123456789">+8801719454356</a></li>
-                    <li class="website list-inline-item"><i class="fa fa-globe"></i><a href="#" target="_blank">portfoliosite.com</a></li>
-                </ul>
-            </div>
-        </div> -->
-        <div class="page-nav-space-holder d-none d-md-block">
-            <div id="page-nav-wrapper" class="page-nav-wrapper text-center">
-                <div class="container">
-                    <ul id="page-nav" class="nav page-nav list-inline">
-                        <li class="nav-item"><a class="smoothscroll nav-link"
-                                href="#experiences-section">Experiences</a></li>
-                        <li class="nav-item"><a class="smoothscroll nav-link" href="#education-section">Education</a>
-                        </li>
-                        <li class="nav-item"><a class="smoothscroll nav-link" href="#skill-section">Skills</a></li>
-                        <li class="nav-item"><a class="smoothscroll nav-link" href="#portfolio-section">Portfolio</a>
-                        </li>
-                        <li class="nav-item"><a class="smoothscroll nav-link" href="#interest-section">Interests</a>
-                        </li>
-
-                        <!-- <li class="nav-item"><a class="smoothscroll nav-link" href="#contact-section">Contact</a></li> -->
-                    </ul>
-                </div>
-            </div>
-        </div>
+			<div id="navigation" class="collapse navbar-collapse flex-column" >
+				<div class="profile-section pt-3 pt-lg-0">
+				    <img class="profile-image mb-3 rounded-circle mx-auto" src="assets/images/profile.png" alt="image" >			
+					
+					<div class="bio mb-3">Hi, my name is Anthony Doe. Briefly introduce yourself here. You can also provide a link to the about page.<br><a href="about.html">Find out more about me</a></div><!--//bio-->
+					<ul class="social-list list-inline py-3 mx-auto">
+			            <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="#"><i class="fab fa-github-alt fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="#"><i class="fab fa-stack-overflow fa-fw"></i></a></li>
+			            <li class="list-inline-item"><a href="#"><i class="fab fa-codepen fa-fw"></i></a></li>
+			        </ul><!--//social-list-->
+			        <hr> 
+				</div><!--//profile-section-->
+				
+				<ul class="navbar-nav flex-column text-left">
+					<li class="nav-item active">
+					    <a class="nav-link" href="index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="blog-post.html"><i class="fas fa-bookmark fa-fw mr-2"></i>Blog Post</a>
+					</li>
+					<li class="nav-item">
+					    <a class="nav-link" href="about.html"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+					</li>
+				</ul>
+				
+				<div class="my-2 my-md-3">
+				    <a class="btn btn-primary" href="https://themes.3rdwavemedia.com/" target="_blank">Get in Touch</a>
+				</div>
+			</div>
+		</nav>
     </header>
+    
+    <div class="main-wrapper">
+	    <section class="cta-section theme-bg-light py-5">
+		    <div class="container text-center">
+			    <h2 class="heading">DevBlog - A Blog Template Made For Developers</h2>
+			    <div class="intro">Welcome to my blog. Subscribe and get my latest blog post in your inbox.</div>
+			    <form class="signup-form form-inline justify-content-center pt-3">
+                    <div class="form-group">
+                        <label class="sr-only" for="semail">Your email</label>
+                        <input type="email" id="semail" name="semail1" class="form-control mr-md-1 semail" placeholder="Enter email">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+		    </div><!--//container-->
+	    </section>
+	    <section class="blog-list px-3 py-5 p-md-5">
+		    <div class="container">
+			    <div class="item mb-5">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/blog-post-thumb-1.jpg" alt="image">
+					    <div class="media-body">
+						    <h3 class="title mb-1"><a href="blog-post.html">Why Every Developer Should Have A Blog</a></h3>
+						    <div class="meta mb-1"><span class="date">Published 2 days ago</span><span class="time">5 min read</span><span class="comment"><a href="#">8 comments</a></span></div>
+						    <div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...</div>
+						    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+			    <div class="item mb-5">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/blog-post-thumb-2.jpg" alt="image">
+					    <div class="media-body">
+						    <h3 class="title mb-1"><a href="blog-post.html">A Guide to Becoming a Full-Stack Developer</a></h3>
+						    <div class="meta mb-1"><span class="date">Published 3 months ago</span><span class="time">3 min read</span><span class="comment"><a href="#">26 comments</a></span></div>
+						    <div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...</div>
+						    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+			    
+			    <div class="item mb-5">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/blog-post-thumb-3.jpg" alt="image">
+					    <div class="media-body">
+						    <h3 class="title mb-1"><a href="blog-post.html">High Performance JavaScript</a></h3>
+						    <div class="meta mb-1"><span class="date">Published 1 month ago</span><span class="time">8 min read</span><span class="comment"><a href="#">12 comments</a></span></div>
+						    <div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...</div>
+						    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+			    <div class="item mb-5">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/blog-post-thumb-4.jpg" alt="image">
+					    <div class="media-body">
+						    <h3 class="title mb-1"><a href="blog-post.html">Top 5 JavaScript Frameworks</a></h3>
+						    <div class="meta mb-1"><span class="date">Published 2 months ago</span><span class="time">15 min read</span><span class="comment"><a href="#">3 comments</a></span></div>
+						    <div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...</div>
+						    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+			    
+			    <div class="item mb-5">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/blog-post-thumb-5.jpg" alt="image">
+					    <div class="media-body">
+						    <h3 class="title mb-1"><a href="blog-post.html">Learn React in 24 Hours</a></h3>
+						    <div class="meta mb-1"><span class="date">Published 2 months ago</span><span class="time">10 min read</span><span class="comment"><a href="#">23 comments</a></span></div>
+						    <div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...</div>
+						    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+			    
+			    <div class="item">
+				    <div class="media">
+					    <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="assets/images/blog/blog-post-thumb-6.jpg" alt="image">
+					    <div class="media-body">
+						    <h3 class="title mb-1"><a href="blog-post.html">About Remote Working</a></h3>
+						    <div class="meta mb-1"><span class="date">Published 3 months ago</span><span class="time">2 min read</span><span class="comment"><a href="#">1 comment</a></span></div>
+						    <div class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies...</div>
+						    <a class="more-link" href="blog-post.html">Read more &rarr;</a>
+					    </div><!--//media-body-->
+				    </div><!--//media-->
+			    </div><!--//item-->
+			    
+			    <nav class="blog-nav nav nav-justified my-5">
+				  <a class="nav-link-prev nav-item nav-link d-none rounded-left" href="#">Previous<i class="arrow-prev fas fa-long-arrow-alt-left"></i></a>
+				  <a class="nav-link-next nav-item nav-link rounded" href="blog-list.html">Next<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+				</nav>
+				
+		    </div>
+	    </section>
+	    
+	    <footer class="footer text-center py-2 theme-bg-dark">
+		   
+	        <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
+            <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+		   
+	    </footer>
+    
+    </div><!--//main-wrapper-->
+    
+    
+    
+    
+    <!-- *****CONFIGURE STYLE (REMOVE ON YOUR PRODUCTION SITE)****** -->  
+    <div id="config-panel" class="config-panel d-none d-lg-block">
+        <div class="panel-inner">
+            <a id="config-trigger" class="config-trigger config-panel-hide text-center" href="#"><i class="fas fa-cog fa-spin mx-auto" data-fa-transform="down-6" ></i></a>
+            <h5 class="panel-title">Choose Colour</h5>
+            <ul id="color-options" class="list-inline mb-0">
+                <li class="theme-1 active list-inline-item"><a data-style="assets/css/theme-1.css" href="#"></a></li>
+                <li class="theme-2  list-inline-item"><a data-style="assets/css/theme-2.css" href="#"></a></li>
+                <li class="theme-3  list-inline-item"><a data-style="assets/css/theme-3.css" href="#"></a></li>
+                <li class="theme-4  list-inline-item"><a data-style="assets/css/theme-4.css" href="#"></a></li>
+                <li class="theme-5  list-inline-item"><a data-style="assets/css/theme-5.css" href="#"></a></li>
+                <li class="theme-6  list-inline-item"><a data-style="assets/css/theme-6.css" href="#"></a></li>
+                <li class="theme-7  list-inline-item"><a data-style="assets/css/theme-7.css" href="#"></a></li>
+                <li class="theme-8  list-inline-item"><a data-style="assets/css/theme-8.css" href="#"></a></li>
+            </ul>
+            <a id="config-close" class="close" href="#"><i class="fa fa-times-circle"></i></a>
+        </div><!--//panel-inner-->
+    </div><!--//configure-panel-->
 
-    <div class="body">
-        <!-- Experiences -->
-        <div class="wrapper container text-dark">
-            <section id="experiences-section" class="experiences-section section">
-                <h2 class="section-title">Work Experiences</h2>
-                <div id="timeline-experience">
-                    <div class="timeline-block">
-                        <div class="timeline-dot">
-                            <h6>F</h6>
-                        </div>
-                        <div class="card timeline-content wow zoomIn" data-wow-duration="0.75s">
-                            <div class="card-content">
-                                <h6 class="timeline-title text-info">Senior Frontend Developer</h6>
-                                <div class="timeline-info">
-                                    <h6>
-                                        <small>Integrated Software & Technologies Limited,</small>
-                                    </h6>
-                                    <h6>
-                                        <small>November 2019 - Continue...</small>
-                                    </h6>
-                                </div>
-                                <p>
-                                    Working on responsive website and desktop
-                                    application as per client’s demand includes designing
-                                    management system (dashboard, admin panel). Designing with Java FX for desktop
-                                    application. Developing websites using Angular, Bootstrap, Material Design,
-                                    Typescript, JavaScript and jQuery.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-block">
-                        <div class="timeline-dot">
-                            <h6>F</h6>
-                        </div>
-                        <div class="card timeline-content wow zoomIn" data-wow-duration="0.75s">
-                            <div class="card-content">
-                                <h6 class="timeline-title text-info">Frontend Developer & Designer</h6>
-                                <div class="timeline-info">
-                                    <h6>
-                                        <small>Integrated Software & Technologies Limited,</small>
-                                    </h6>
-                                    <h6>
-                                        <small>November 2018 - October 2019</small>
-                                    </h6>
-                                </div>
-                                <p>
-                                    Working on responsive website and desktop
-                                    application as per client’s demand includes designing
-                                    management system (dashboard, admin panel). Working on Angular for upcoming
-                                    projects. Designing with Java FX for desktop application. Working with photoshop
-                                    for various design task.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-block">
-                        <div class="timeline-dot">
-                            <h6>F</h6>
-                        </div>
-                        <div class="card timeline-content wow zoomIn" data-wow-duration="0.75s" data-wow-delay="0.1s">
-                            <div class="card-content">
-                                <h6 class="timeline-title text-info">Frontend Developer</h6>
-                                <div class="timeline-info">
-                                    <h6>
-                                        <small>Diva World Wide,</small>
-                                    </h6>
-                                    <h6>
-                                        <small>July 2017 - December 2018</small>
-                                    </h6>
-                                </div>
-                                <p>
-                                    Developing Banner including Google Adword, Rich Media Banners, Animated Banner &
-                                    Dynamic Banner from PSD
-                                    for different clients from all over the world. We develop banner for different
-                                    well known Brands all over the work like Samsung, Ford, LG, Huawei, Toyota etc.
-                                    Working on Angular and Node JS
-                                    for upcoming projects. Participate inhouse skill developemt program determined
-                                    and undertaken by company for employees.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-block">
-                        <div class="timeline-dot">
-                            <h6>W</h6>
-                        </div>
-                        <div class="card timeline-content wow zoomIn" data-wow-duration="0.75s" data-wow-delay="0.2s">
-                            <div class="card-content">
-                                <h6 class="timeline-title text-info">Web Developer</h6>
-                                <div class="timeline-info">
-                                    <h6>
-                                        <small>RD Network BD,</small>
-                                    </h6>
-                                    <h6>
-                                        <small>January 2016 - June 2017</small>
-                                    </h6>
-                                </div>
-                                <p>
-                                    Working on responsive website design as per client’s demand and theme
-                                    development as well from PSD for theme forest (using Bootstrap, Bulma &
-                                    Materialize
-                                    CSS). Participate in knowledge enhancing activities determined and undertaken by
-                                    company
-                                </p>
+    
+       
+    <!-- Javascript -->          
+    <script src="assets/plugins/jquery-3.4.1.min.js"></script>
+    <script src="assets/plugins/popper.min.js"></script> 
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-block">
-                        <div class="timeline-dot">
-                            <h6>S</h6>
-                        </div>
-                        <div class="card timeline-content wow zoomIn" data-wow-duration="0.75s" data-wow-delay="0.3s">
-                            <div class="card-content">
-                                <h6 class="timeline-title text-info">Software Support Engineer</h6>
-                                <div class="timeline-info">
-                                    <h6>
-                                        <small>yGentech Solutions Limited,</small>
-                                    </h6>
-                                    <h6>
-                                        <small>June 2014 - December 2015</small>
-                                    </h6>
-                                </div>
-                                <p>
-                                    Here my duties and responsibilities were Managing Remote Server (Windows &
-                                    Linux)
-                                    using SSH, putty, remote desktop and VNC. Providing dialer support for different
-                                    Platforms (Symbian, Android, iPhone, Windows & Pc2Phone), different location &
-                                    network. Automated
-                                    report generation using scripting and manual reporting using Microsoft Excel.
-                                </p>
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="assets/js/demo/style-switcher.js"></script>     
+    
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-block">
-                        <div class="timeline-dot">
-                            <h6>N</h6>
-                        </div>
-                        <div class="card timeline-content wow zoomIn" data-wow-duration="0.75s" data-wow-delay="0.4s">
-                            <div class="card-content">
-                                <h6 class="timeline-title text-info">NOC Engineer</h6>
-                                <div class="timeline-info">
-                                    <h6>
-                                        <small>Inspire Systems Ltd</small>
-                                    </h6>
-                                    <h6>
-                                        <small>March 2012 - April 2014</small>
-                                    </h6>
-                                </div>
-                                <p>
-                                    I started my carrier here, my resposibilities and dutes were Monitoring the
-                                    traffic and all other services including voipbox, tunnel server, voip switch
-                                    etc. Maintaining CRM for complain from client (vTiger CRM & Sugar CRM).
-                                    Troubleshooting by means of
-                                    SIP and H323 Signaling Messages and the ISDN Cause code.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--//experirence-->
-            <!--education-->
-            <section id="education-section" class="education-section section">
-                <h2 class="section-title">Education</h2>
-                <div class="timeline">
-                    <div class="item wow slideInUp" data-wow-duration="0.5s">
-                        <div class="work-place">
-                            <h3 class="place">M.Sc. in Information & Communication Engineering</h3>
-                        </div>
-                        <div class="job-meta">
-                            <div class="title">M.Sc.</div>
-                            <div class="time">2010-2011</div>
-                        </div>
-                        <div class="job-desc">
-                            <ul>
-                                <li>CGPA 2.96</li>
-                                <li>Islamic University, Kushtia</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="item wow slideInUp" data-wow-duration="0.5s" data-wow-delay="0.1s">
-                        <div class="work-place">
-                            <h3 class="place">B.Sc. in Information & Communication Engineering</h3>
-                        </div>
-                        <div class="job-meta">
-                            <div class="title">B.Sc.</div>
-                            <div class="time">2005-2009</div>
-                        </div>
-                        <div class="job-desc">
-                            <ul>
-                                <li>First Class Fifth</li>
-                                <li>Islamic University, Kushtia</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="item wow slideInUp" data-wow-duration="0.5s" data-wow-delay="0.2s">
-                        <div class="work-place">
-                            <h3 class="place">H.S.C. in Science</h3>
-                        </div>
-                        <div class="job-meta">
-                            <div class="title">H.S.C</div>
-                            <div class="time">2004-2005</div>
-                        </div>
-                        <div class="job-desc">
-                            <ul>
-                                <li>CGPA 5.00</li>
-                                <li>Govt. Azizul Haque College, Bogra</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="item wow slideInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
-                        <div class="work-place">
-                            <h3 class="place">S.S.C. in Science</h3>
-                        </div>
-                        <div class="job-meta">
-                            <div class="title">S.S.C</div>
-                            <div class="time">2003-2004</div>
-                        </div>
-                        <div class="job-desc">
-                            <ul>
-                                <li>CGPA 4.75</li>
-                                <li>Bogra Zilla School, Bogra</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--//education-->
-            <!--//skill-->
-            <section id="skill-section" class="skill-section section">
-                <h2 class="section-title">Skills</h2>
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div id="skills-card" class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="1s">
-                                        <div class="skillbar" data-percent="95%">
-                                            <div class="skillbar-title"><span>HTML5</span></div>
-                                            <div class="skillbar-bar progress-bar" role="progressbar"
-                                                style="width: 95%;" aria-valuenow="95" aria-valuemin="0"
-                                                aria-valuemax="95"></div>
-                                            <div class="skill-bar-percent">95%</div>
-                                        </div>
-                                        <div class="skillbar" data-percent="75%">
-                                            <div class="skillbar-title"><span>jQuery</span></div>
-                                            <div class="skillbar-bar progress-bar" role="progressbar"
-                                                style="width: 75%;" aria-valuenow="75" aria-valuemin="0"
-                                                aria-valuemax="75"></div>
-                                            <div class="skill-bar-percent">75%</div>
-                                        </div>
-                                        <div class="skillbar" data-percent="80%">
-                                            <div class="skillbar-title"><span>javaScript</span></div>
-                                            <div class="skillbar-bar progress-bar" role="progressbar"
-                                                style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
-                                                aria-valuemax="80"></div>
-                                            <div class="skill-bar-percent">80%</div>
-                                        </div>
-                                        <div class="skillbar" data-percent="80%">
-                                            <div class="skillbar-title"><span>Anguler</span></div>
-                                            <div class="skillbar-bar progress-bar" role="progressbar"
-                                                style="width: 75%;" aria-valuenow="75" aria-valuemin="0"
-                                                aria-valuemax="80"></div>
-                                            <div class="skill-bar-percent">75%</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="1s"
-                                        data-wow-delay="0.3s">
-                                        <div class="skillbar" data-percent="90%">
-                                            <div class="skillbar-title"><span>CSS3</span></div>
-                                            <div class="skillbar-bar progress-bar" role="progressbar"
-                                                style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
-                                                aria-valuemax="90"></div>
-                                            <div class="skill-bar-percent">90%</div>
-                                        </div>
-                                        <div class="skillbar" data-percent="95%">
-                                            <div class="skillbar-title"><span>Bootstrap CSS Framework</span></div>
-                                            <div class="skillbar-bar progress-bar" role="progressbar"
-                                                style="width: 95%;" aria-valuenow="95" aria-valuemin="0"
-                                                aria-valuemax="95"></div>
-                                            <div class="skill-bar-percent">95%</div>
-                                        </div>
-                                        <div class="skillbar" data-percent="90%">
-                                            <div class="skillbar-title"><span>Bulma CSS Framework</span></div>
-                                            <div class="skillbar-bar progress-bar" role="progressbar"
-                                                style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
-                                                aria-valuemax="90"></div>
-                                            <div class="skill-bar-percent">90%</div>
-                                        </div>
-                                        <div class="skillbar" data-percent="90%">
-                                            <div class="skillbar-title"><span>Materialize CSS Framework</span></div>
-                                            <div class="skillbar-bar progress-bar" role="progressbar"
-                                                style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
-                                                aria-valuemax="90"></div>
-                                            <div class="skill-bar-percent">90%</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-sm-6 col-xs-12 wow fadeIn" data-wow-duration="1s"
-                                        data-wow-delay="0.6s">
-                                        <div class="skillbar" data-percent="80%">
-                                            <div class="skillbar-title"><span>Java FX</span></div>
-                                            <div class="skillbar-bar  progress-bar" role="progressbar"
-                                                style="width: 80%;" aria-valuenow="80" aria-valuemin="0"
-                                                aria-valuemax="80"></div>
-                                            <div class="skill-bar-percent">80%</div>
-                                        </div>
-                                        <div class="skillbar" data-percent="75%">
-                                            <div class="skillbar-title"><span>Git</span></div>
-                                            <div class="skillbar-bar  progress-bar" role="progressbar"
-                                                style="width: 75%;" aria-valuenow="75" aria-valuemin="0"
-                                                aria-valuemax="75"></div>
-                                            <div class="skill-bar-percent">75%</div>
-                                        </div>
-                                        <div class="skillbar" data-percent="85%">
-                                            <div class="skillbar-title"><span>SCSS/SASS</span></div>
-                                            <div class="skillbar-bar  progress-bar" role="progressbar"
-                                                style="width: 85%;" aria-valuenow="85" aria-valuemin="0"
-                                                aria-valuemax="85"></div>
-                                            <div class="skill-bar-percent">85%</div>
-                                        </div>
-                                        <div class="skillbar" data-percent="90%">
-                                            <div class="skillbar-title"><span>Rich Media Banners</span></div>
-                                            <div class="skillbar-bar  progress-bar" role="progressbar"
-                                                style="width: 90%;" aria-valuenow="90" aria-valuemin="0"
-                                                aria-valuemax="90"></div>
-                                            <div class="skill-bar-percent">90%</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--//skill-->
-            <!--portfolio-->
-            <section id="portfolio-section" class="portfolio-section section">
-                <h2 class="section-title">Portfolio</h2>
-                <div class="portfolio-body">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <ul id="filter-list" class="clearfix controls">
-                                    <li class="type active filter" data-filter="all">All PROJECT</li>
-                                    <li class="type filter" data-filter=".web">Website</li>
-                                    <li class="type filter" data-filter=".angular">Angular</li>
-                                    <li class="type filter" data-filter=".ecommerce">E-Commerce</li>
-                                    <li class="type filter" data-filter=".mobile">Mobile</li>
-                                </ul>
-                                <ul id="portfolio" class="row">
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix web">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=Hoopstir"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank"
-                                                    href="https://www.hoopstir.com/">Hoopstir<br />Preview
-                                                    Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix web">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=NorthurnBounce"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank" href="https://www.northernbounce.com/">Northurn
-                                                    Bounce<br />Preview Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix web">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=West Coast"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank" href="http://www.westcoastbasketball.ca/">West Coast
-                                                    Basketball<br />Preview Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix web">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=West Coast"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank" href="http://www.westcoastbasketball.ca/">West Coast
-                                                    Basketball<br />Preview Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix web">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=Revirtua"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank" href="http://revirtua.com/">Revirtua<br />Preview
-                                                    Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix web">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=BiaShadi"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank"
-                                                    href="https://revolthemes.net/demo/BiaShadi/">BiaShadi<br />Preview
-                                                    Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix web">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=Greenfinity"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank"
-                                                    href="https://greenfinitybd.com/">Greenfinity<br />Preview
-                                                    Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix web">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=FashionCastle"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank" href="http://fashioncastle.net/">Fashion
-                                                    Castle<br />Preview Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix angular">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=Roysha"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank"
-                                                    href="https://themeies.com/demo/angular/roysha/">Roysha<br />Preview
-                                                    Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix angular ecommerce">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=6Degree"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank"
-                                                    href="https://xirosoft.com/demo/6degree-angular/home">6
-                                                    Degree<br />Preview Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix angular ecommerce">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=proClean"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank"
-                                                    href="https://www.procleanbd.com/">proClean<br />Preview
-                                                    Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix mobile">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=Bemycar"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank"
-                                                    href="https://play.google.com/store/apps/details?id=com.motorpressiberica.bemycar">Bemycar<br />Preview
-                                                    Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix ecommerce">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=Denali"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank"
-                                                    href="https://github.com/sakib042/denali_ecommerce">Denali
-                                                    Preview Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                    <li class="col-12 col-sm-6 col-lg-4 wow fadeInDown mix angular">
-                                        <a href="#">
-                                            <img src="https://via.placeholder.com/320x180?text=LoanCalculator"
-                                                class="img img-fluid" alt="">
-                                        </a>
-                                        <div class="portfolio-hover-overlay"></div>
-                                        <div class="portfolio-hover-content">
-                                            <h5>
-                                                <a target="_blank"
-                                                    href="https://bitbucket.org/sakib042/loan-repayment-calculator/src/master/">Loan
-                                                    Calculator
-                                                    Preview Link</a>
-                                            </h5>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--//portfolio-->
-            <!--interest-->
-            <section id="interest-section" class="interest-section section">
-                <h2 class="section-title">Interest</h2>
-
-                <div id="interest-card" class="card">
-                    <div class="row no-gutters">
-                        <div class="col-md-2 col-sm-4 col-xs-6  box text-center">
-                            <div class="interest-icon">
-                                <i class="fa fa-music"></i><br>
-                                <span>Listening Music</span>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6 box text-center">
-                            <div class="interest-icon-even">
-                                <i class="fa fa-gamepad"></i>
-                                <span>Gaming</span>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6 box text-center">
-                            <div class="interest-icon">
-                                <i class="fa fa-binoculars"></i><br>
-                                <span>Explore</span>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6 box text-center">
-                            <div class="interest-icon-even">
-                                <i class="fa fa-star"></i>
-                                <span>Learning New Things</span>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6 box text-center">
-                            <div class="interest-icon">
-                                <i class="fa fa-plane"></i><br>
-                                <span>Travelling</span>
-                            </div>
-                        </div>
-                        <div class="col-md-2 col-sm-4 col-xs-6 box text-center">
-                            <div class="interest-icon-even">
-                                <i class="fa fa-film"></i>
-                                <span>Movies</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--//interest-->
-
-            <!--contact-->
-            <!-- <section id="contact-section" class="contact-section section">
-                    <h2 class="section-title">Contact</h2>
-                    <div class="row">
-                        <div class="col-md-5 col-sm-12 col-xs-12">
-                            <-- CONTACT FORM --
-                            <div class="contact-form justify-content-center">
-                                <form>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <input type="text" class="form-control" id="firstName" placeholder="Name">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <input type="email" class="form-control" id="email" placeholder="Email">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-12">
-                                            <textarea rows="6" class="form-control" id="message"
-                                                placeholder="Message..."></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="row justify-content-center">
-                                        <div class="col-12 col-sm-4 col-lg-3 col-xl-2">
-                                            <button type="submit" class="btn btn-light btn-block">Send</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-md-7 col-sm-12 col-xs-12">
-                            <-- CONTACT MAP --
-                            <div id="map-card" class="card">
-                                <-- MAP --
-                                <div id="myMap">
-                                    <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233668.3870397137!2d90.2792381917259!3d23.780573256485233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1513666665101"
-                                        height="417" frameborder="0" style="border:0;width:100%"
-                                        allowfullscreen></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> -->
-            <!--//contact-->
-
-            <!-- Footer -->
-
-            <section class="footer-section">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <p class="text-center">All rights reserved, &copy; 2019</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <a class="smoothscroll" href="#top"><i class="fa fa-chevron-up back-to-up fa-2x"
-                    title="Back to Top"></i></a>
-
-        </div>
-    </div>
-    <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    <script src="js/jquery.mixitup.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-    <script src="js/script.js"></script>
 </body>
+</html> 
 
-</html>
