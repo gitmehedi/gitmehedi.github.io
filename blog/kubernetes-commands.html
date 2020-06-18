@@ -83,15 +83,29 @@
                 <figure class="blog-banner" style="text-align: center;">
                     <img class="img-fluid" src="../assets/images/blog/kubernetes_command.png" alt="image">
                 </figure>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                    massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec
-                    quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-                    Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut,
-                    imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
-                    Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
-                    porttitor eu, consequat vitae, eleifend ac, enim. </p>
+                <p>Generators are kubectl commands that generate resources based on a set of inputs (other resources, flags, or a combination of both. </p>
 
-                <h3 class="mt-5 mb-3">Code Block Example</h3>
+                <h3 class="mt-5 mb-3">Generator Types</h3>
+
+                <pre>
+                    <code>
+  clusterrole         Create a ClusterRole.
+  clusterrolebinding  Create a ClusterRoleBinding for a particular ClusterRole
+  configmap           Create a configmap from a local file, directory or literal value
+  cronjob             Create a cronjob with the specified name.
+  deployment          Create a deployment with the specified name.
+  job                 Create a job with the specified name.
+  namespace           Create a namespace with the specified name
+  poddisruptionbudget Create a pod disruption budget with the specified name.
+  priorityclass       Create a priorityclass with the specified name.
+  quota               Create a quota with the specified name.
+  role                Create a role with single rule.
+  rolebinding         Create a RoleBinding for a particular Role or ClusterRole
+  secret              Create a secret using specified subcommand
+  service             Create a service using specified subcommand.
+  serviceaccount      Create a service account with the specified name
+                    </code>
+                </pre>
                 <p>You can get more info at <a href="https://highlightjs.org/"
                                                target="_blank">https://highlightjs.org/</a>. Lorem ipsum dolor sit amet,
                     consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -102,7 +116,58 @@
                     elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
                     vitae, eleifend ac, enim. </p>
                 <pre>
-					    <code>
+                    <code>
+  $ k run -h
+  Create and run a particular image in a pod.
+
+  Examples:
+  # Start a hazelcast pod and set environment variables "DNS_DOMAIN=cluster" and "POD_NAMESPACE=default" in thecontainer.
+  kubectl run hazelcast --image=hazelcast/hazelcast --env="DNS_DOMAIN=cluster" --env="POD_NAMESPACE=default" --port=5701 --labels="app=hazelcast,env=prod"
+
+  # Start a nginx pod, but overload the spec with a partial set of values parsed from JSON.
+  kubectl run nginx --image=nginx --overrides='{ "apiVersion": "v1", "spec": { ... } }'
+
+  # Start the nginx pod using the default command, but use custom arguments (arg1 .. argN) for that command.
+  kubectl run nginx --image=nginx -- <arg1> <arg2> ... <argN>
+
+  # Start the nginx pod using a different command and custom arguments.
+  kubectl run nginx --image=nginx --command -- <cmd> <arg1> ... <argN>
+
+Options:
+      --command=false: If true and extra arguments are present, use them as the 'command' field in the container, rather
+than the 'args' field which is the default.
+      --env=[]: Environment variables to set in the container.
+      --expose=false: If true, service is created for the container(s) which are run
+  -f, --filename=[]: to use to replace the resource.
+      --force=false: If true, immediately remove resources from API and bypass graceful deletion. Note that immediate
+deletion of some resources may result in inconsistency or data loss and requires confirmation.
+      --hostport=-1: The host port mapping for the container port. To demonstrate a single-machine container.
+      --image='': The image for the container to run.
+      --image-pull-policy='': The image pull policy for the container. If left empty, this value will not be specified
+by the client and defaulted by the server
+  -l, --labels='': Comma separated labels to apply to the pod(s). Will override previous values.
+      --leave-stdin-open=false: If the pod is started in interactive mode or with stdin, leave stdin open after the
+first attach completes. By default, stdin will be closed after the first attach completes.
+      --limits='': The resource requirement limits for this container.  For example, 'cpu=200m,memory=512Mi'.  Note that
+server side components may assign limits depending on the server configuration, such as limit ranges.
+  -o, --output='': Output format. One of:
+json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
+      --port='': The port that this container exposes.
+      --record=false: Record current kubectl command in the resource annotation. If set to false, do not record the
+command. If set to true, record the command. If not set, default to updating the existing annotation value only if one
+already exists.
+      --requests='': The resource requirement requests for this container.  For example, 'cpu=100m,memory=256Mi'.  Note
+that server side components may assign requests depending on the server configuration, such as limit ranges.
+      --rm=false: If true, delete resources created in this command for attached containers.
+      --serviceaccount='': Service account to set in the pod spec.
+                    </code>
+                </pre>
+
+
+                <h3 class="mt-5 mb-3">Necessary Kubernetes Command for Alias</h3>
+                <pre>
+                       <code>
+
 $ alias k="kubectl"
 $ alias kn="kubectl get nodes -o wide"
 $ alias kp="kubectl get pods -o wide"
