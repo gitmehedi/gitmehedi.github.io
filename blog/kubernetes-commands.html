@@ -301,76 +301,246 @@ Usage:
                     </code>
                 </pre>
 
-                <h5>cronjob</h5>
+                <h5>CronJob</h5>
                 <pre>
                     <code>
+Create a cronjob with the specified name.
+
+Aliases:
+cronjob, cj
+
+Examples:
+  # Create a cronjob with command
+  kubectl create cronjob my-job --image=busybox -- date
+
+  # Create a cronjob with schedule
+  kubectl create cronjob test-job --image=busybox --schedule="*/1 * * * *"
+
+Options:
+  --image='': Image name to run.
+  --schedule='': A schedule in the Cron format the job should be run with.
+
+Usage:
+  kubectl create cronjob NAME --image=image --schedule='0/5 * * * ?' -- [COMMAND] [args...] [flags] [options]
 
                     </code>
                 </pre>
-                <h5>deployment</h5>
+                <h5>Deployment</h5>
                 <pre>
                     <code>
+Create a deployment with the specified name.
+
+Aliases:
+deployment, deploy
+
+Examples:
+  # Create a new deployment named my-dep that runs the busybox image.
+  kubectl create deployment my-dep --image=busybox
+
+Options:
+  --image=[]: Image name to run.
+
+Usage:
+  kubectl create deployment NAME --image=image [--dry-run=server|client|none] [options]
 
                     </code>
                 </pre>
-                <h5>namespace</h5>
+                <h5>Namespace</h5>
                 <pre>
                     <code>
+Create a namespace with the specified name.
+
+Aliases:
+namespace, ns
+
+Examples:
+  # Create a new namespace named my-namespace
+  kubectl create namespace my-namespace
+
+Usage:
+  kubectl create namespace NAME [--dry-run=server|client|none] [options]
 
                     </code>
                 </pre>
-                <h5>poddisruptionbudget</h5>
+                <h5>Poddisruptionbudget</h5>
                 <pre>
                     <code>
+Create a pod disruption budget with the specified name, selector, and desired minimum available pods
+
+Aliases:
+poddisruptionbudget, pdb
+
+Examples:
+  # Create a pod disruption budget named my-pdb that will select all pods with the app=rails label
+  # and require at least one of them being available at any point in time.
+  kubectl create poddisruptionbudget my-pdb --selector=app=rails --min-available=1
+
+  # Create a pod disruption budget named my-pdb that will select all pods with the app=nginx label
+  # and require at least half of the pods selected to be available at any point in time.
+  kubectl create pdb my-pdb --selector=app=nginx --min-available=50%
+
+Options:
+  --max-unavailable='': The maximum number or percentage of unavailable pods this budget requires.
+  --min-available='': The minimum number or percentage of available pods this budget requires.
+  --selector='': A label selector to use for this budget. Only equality-based selector requirements are supported.
+
+Usage:
+  kubectl create poddisruptionbudget NAME --selector=SELECTOR --min-available=N [--dry-run=server|client|none] [options]
 
                     </code>
                 </pre>
-                <h5>priorityclass</h5>
+                <h5>PriorityClass</h5>
                 <pre>
                     <code>
+Create a priorityclass with the specified name, value, globalDefault and description
+
+Aliases:
+priorityclass, pc
+
+Examples:
+  # Create a priorityclass named high-priority
+  kubectl create priorityclass high-priority --value=1000 --description="high priority"
+
+  # Create a priorityclass named default-priority that considered as the global default priority
+  kubectl create priorityclass default-priority --value=1000 --global-default=true --description="default priority"
+
+  # Create a priorityclass named high-priority that can not preempt pods with lower priority
+  kubectl create priorityclass high-priority --value=1000 --description="high priority" --preemption-policy="Never"
+
+Options:
+  --description='': description is an arbitrary string that usually provides guidelines on when this priority class should be used.
+  --global-default=false: global-default specifies whether this PriorityClass should be considered as the default priority.
+  --preemption-policy='': preemption-policy is the policy for preempting pods with lower priority.
+  --value=0: the value of this priority class.
+
+Usage:
+  kubectl create priorityclass NAME --value=VALUE --global-default=BOOL [--dry-run=server|client|none] [options]
 
                     </code>
                 </pre>
-                <h5>quota</h5>
+                <h5>Quota</h5>
                 <pre>
                     <code>
+Create a resourcequota with the specified name, hard limits and optional scopes
+
+Aliases:
+quota, resourcequota
+
+Examples:
+  # Create a new resourcequota named my-quota
+  kubectl create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10
+
+  # Create a new resourcequota named best-effort
+  kubectl create quota best-effort --hard=pods=100 --scopes=BestEffort
+
+Options:
+  --hard='': A comma-delimited set of resource=quantity pairs that define a hard limit.
+  --scopes='': A comma-delimited set of quota scopes that must all match each object tracked by the quota.
+
+Usage:
+  kubectl create quota NAME [--hard=key1=value1,key2=value2] [--scopes=Scope1,Scope2] [--dry-run=server|client|none][options]
+                    </code>
+                </pre>
+                <h5>Role</h5>
+                <pre>
+                    <code>
+Create a role with single rule.
+
+Examples:
+  # Create a Role named "pod-reader" that allows user to perform "get", "watch" and "list" on pods
+  kubectl create role pod-reader --verb=get --verb=list --verb=watch --resource=pods
+
+  # Create a Role named "pod-reader" with ResourceName specified
+  kubectl create role pod-reader --verb=get --resource=pods --resource-name=readablepod --resource-name=anotherpod
+
+  # Create a Role named "foo" with API Group specified
+  kubectl create role foo --verb=get,list,watch --resource=rs.extensions
+
+  # Create a Role named "foo" with SubResource specified
+  kubectl create role foo --verb=get,list,watch --resource=pods,pods/status
+
+Options:
+  --resource=[]: Resource that the rule applies to
+  --resource-name=[]: Resource in the white list that the rule applies to, repeat this flag for multiple items
+  --verb=[]: Verb that applies to the resources contained in the rule
+
+Usage:
+  kubectl create role NAME --verb=verb --resource=resource.group/subresource [--resource-name=resourcename][--dry-run=server|client|none] [options]
 
                     </code>
                 </pre>
-                <h5>role</h5>
+                <h5>RoleBinding</h5>
                 <pre>
                     <code>
+Create a RoleBinding for a particular Role or ClusterRole.
+
+Examples:
+  # Create a RoleBinding for user1, user2, and group1 using the admin ClusterRole
+  kubectl create rolebinding admin --clusterrole=admin --user=user1 --user=user2 --group=group1
+
+Options:
+  --clusterrole='': ClusterRole this RoleBinding should reference
+  --group=[]: Groups to bind to the role
+  --role='': Role this RoleBinding should reference
+  --serviceaccount=[]: Service accounts to bind to the role, in the format <namespace>:<name>
+
+Usage:
+  kubectl create rolebinding NAME --clusterrole=NAME|--role=NAME [--user=username] [--group=groupname]
+[--serviceaccount=namespace:serviceaccountname] [--dry-run=server|client|none] [options]
 
                     </code>
                 </pre>
-                <h5>rolebinding</h5>
+                <h5>Secret</h5>
                 <pre>
                     <code>
+Create a secret using specified subcommand.
+
+Available Commands:
+  docker-registry Create a secret for use with a Docker registry
+  generic         Create a secret from a local file, directory or literal value
+  tls             Create a TLS secret
+
+Usage:
+  kubectl create secret [flags] [options]
 
                     </code>
                 </pre>
-                <h5>secret</h5>
+                <h5>Service</h5>
                 <pre>
                     <code>
+Create a service using specified subcommand.
+
+Aliases:
+service, svc
+
+Available Commands:
+  clusterip    Create a ClusterIP service.
+  externalname Create an ExternalName service.
+  loadbalancer Create a LoadBalancer service.
+  nodeport     Create a NodePort service.
+
+Usage:
+  kubectl create service [flags] [options]
 
                     </code>
                 </pre>
-                <h5>service</h5>
+                <h5>ServiceAccount</h5>
                 <pre>
                     <code>
+Create a service account with the specified name.
+
+Aliases:
+serviceaccount, sa
+
+Examples:
+  # Create a new service account named my-service-account
+  kubectl create serviceaccount my-service-account
+
+Usage:
+  kubectl create serviceaccount NAME [--dry-run=server|client|none] [options]
 
                     </code>
                 </pre>
-                <h5>serviceaccount</h5>
-                <pre>
-                    <code>
-
-                    </code>
-                </pre>
-
-
-
-
 
 
                 <h3 class="mt-5 mb-3">Necessary Kubernetes Command for Alias</h3>
