@@ -146,6 +146,40 @@ $ kubectl create
                 <pre>
                     <code>$ kubectl run front-end --image=nginx --port=80</code>
                 </pre>
+
+                <h4>Details</h4>
+                <pre>
+                    <code>
+Examples:
+  # Start a hazelcast pod and set environment variables "DNS_DOMAIN=cluster" and "POD_NAMESPACE=default" in thecontainer.
+  kubectl run hazelcast --image=hazelcast/hazelcast --env="DNS_DOMAIN=cluster" --env="POD_NAMESPACE=default" --port=5701 --labels="app=hazelcast,env=prod"
+
+  # Start a nginx pod, but overload the spec with a partial set of values parsed from JSON.
+  kubectl run nginx --image=nginx --overrides='{ "apiVersion": "v1", "spec": { ... } }'
+
+  # Start the nginx pod using the default command, but use custom arguments (arg1 .. argN) for that command.
+  kubectl run nginx --image=nginx -- <arg1> <arg2> ... <argN>
+
+  # Start the nginx pod using a different command and custom arguments.
+  kubectl run nginx --image=nginx --command -- <cmd> <arg1> ... <argN>
+
+Options:
+  --command=false: If true and extra arguments are present, use them as the 'command' field in the container, rather than the 'args' field which is the default.
+  --env=[]: Environment variables to set in the container.
+  --expose=false: If true, service is created for the container(s) which are run
+  --hostport=-1: The host port mapping for the container port. To demonstrate a single-machine container.
+  --image='': The image for the container to run.
+  --image-pull-policy='': The image pull policy for the container. If left empty, this value will not be specified by the client and defaulted by the server
+  -l, --labels='': Comma separated labels to apply to the pod(s). Will override previous values.
+  --limits='': The resource requirement limits for this container.  For example, 'cpu=200m,memory=512Mi'.  Note that server side components may assign limits depending on the server configuration, such as limit ranges.
+  --port='': The port that this container exposes.
+  --record=false: Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
+  --requests='': The resource requirement requests for this container.  For example, 'cpu=100m,memory=256Mi'.  Note that server side components may assign requests depending on the server configuration, such as limit ranges.
+  --rm=false: If true, delete resources created in this command for attached containers.
+  --serviceaccount='': Service account to set in the pod spec.
+                    </code>
+                </pre>
+
                 <strong>KUBECTL CREATE supports 15 resources</strong>
                 <pre>
                     <code>
@@ -167,54 +201,176 @@ $ kubectl create
   serviceaccount      Create a service account with the specified name
                     </code>
                 </pre>
-
+                <h4>Usage of imperative commands</h4>
+                <h5>ClusterRole</h5>
                 <pre>
                     <code>
-  $ k run -h
-  Create and run a particular image in a pod.
+Examples:
+  # Create a ClusterRole named "pod-reader" that allows user to perform "get", "watch" and "list" on pods
+  kubectl create clusterrole pod-reader --verb=get,list,watch --resource=pods
 
-  Examples:
-  # Start a hazelcast pod and set environment variables "DNS_DOMAIN=cluster" and "POD_NAMESPACE=default" in thecontainer.
-  kubectl run hazelcast --image=hazelcast/hazelcast --env="DNS_DOMAIN=cluster" --env="POD_NAMESPACE=default" --port=5701 --labels="app=hazelcast,env=prod"
+  # Create a ClusterRole named "pod-reader" with ResourceName specified
+  kubectl create clusterrole pod-reader --verb=get --resource=pods --resource-name=readablepod
+--resource-name=anotherpod
 
-  # Start a nginx pod, but overload the spec with a partial set of values parsed from JSON.
-  kubectl run nginx --image=nginx --overrides='{ "apiVersion": "v1", "spec": { ... } }'
+  # Create a ClusterRole named "foo" with API Group specified
+  kubectl create clusterrole foo --verb=get,list,watch --resource=rs.extensions
 
-  # Start the nginx pod using the default command, but use custom arguments (arg1 .. argN) for that command.
-  kubectl run nginx --image=nginx -- <arg1> <arg2> ... <argN>
+  # Create a ClusterRole named "foo" with SubResource specified
+  kubectl create clusterrole foo --verb=get,list,watch --resource=pods,pods/status
 
-  # Start the nginx pod using a different command and custom arguments.
-  kubectl run nginx --image=nginx --command -- <cmd> <arg1> ... <argN>
+  # Create a ClusterRole name "foo" with NonResourceURL specified
+  kubectl create clusterrole "foo" --verb=get --non-resource-url=/logs/*
+
+  # Create a ClusterRole name "monitoring" with AggregationRule specified
+  kubectl create clusterrole monitoring --aggregation-rule="rbac.example.com/aggregate-to-monitoring=true"
 
 Options:
-      --command=false: If true and extra arguments are present, use them as the 'command' field in the container, rather
-than the 'args' field which is the default.
-      --env=[]: Environment variables to set in the container.
-      --expose=false: If true, service is created for the container(s) which are run
-  -f, --filename=[]: to use to replace the resource.
-      --force=false: If true, immediately remove resources from API and bypass graceful deletion. Note that immediate
-deletion of some resources may result in inconsistency or data loss and requires confirmation.
-      --hostport=-1: The host port mapping for the container port. To demonstrate a single-machine container.
-      --image='': The image for the container to run.
-      --image-pull-policy='': The image pull policy for the container. If left empty, this value will not be specified
-by the client and defaulted by the server
-  -l, --labels='': Comma separated labels to apply to the pod(s). Will override previous values.
-      --leave-stdin-open=false: If the pod is started in interactive mode or with stdin, leave stdin open after the
-first attach completes. By default, stdin will be closed after the first attach completes.
-      --limits='': The resource requirement limits for this container.  For example, 'cpu=200m,memory=512Mi'.  Note that
-server side components may assign limits depending on the server configuration, such as limit ranges.
-  -o, --output='': Output format. One of:
-json|yaml|name|go-template|go-template-file|template|templatefile|jsonpath|jsonpath-file.
-      --port='': The port that this container exposes.
-      --record=false: Record current kubectl command in the resource annotation. If set to false, do not record the
-command. If set to true, record the command. If not set, default to updating the existing annotation value only if one
-already exists.
-      --requests='': The resource requirement requests for this container.  For example, 'cpu=100m,memory=256Mi'.  Note
-that server side components may assign requests depending on the server configuration, such as limit ranges.
-      --rm=false: If true, delete resources created in this command for attached containers.
-      --serviceaccount='': Service account to set in the pod spec.
+   --non-resource-url=[]: A partial url that user should have access to.
+   --resource=[]: Resource that the rule applies to
+   --resource-name=[]: Resource in the white list that the rule applies to, repeat this flag for multiple items
+   --verb=[]: Verb that applies to the resources contained in the rule
+
+Usage:
+  kubectl create clusterrole NAME --verb=verb --resource=resource.group [--resource-name=resourcename]
+[--dry-run=server|client|none] [options]
                     </code>
                 </pre>
+                <h5>ClusterRole</h5>
+                <pre>
+                    <code>
+Create a ClusterRoleBinding for a particular ClusterRole.
+
+Examples:
+  # Create a ClusterRoleBinding for user1, user2, and group1 using the cluster-admin ClusterRole
+  kubectl create clusterrolebinding cluster-admin --clusterrole=cluster-admin --user=user1 --user=user2 --group=group1
+
+Options:
+  --clusterrole='': ClusterRole this ClusterRoleBinding should reference
+  --group=[]: Groups to bind to the clusterrole
+  --serviceaccount=[]: Service accounts to bind to the clusterrole, in the format <namespace>:<name>
+
+Usage:
+  kubectl create clusterrolebinding NAME --clusterrole=NAME [--user=username] [--group=groupname]
+[--serviceaccount=namespace:serviceaccountname] [--dry-run=server|client|none] [options]
+
+                    </code>
+                </pre>
+
+                <h5>ClusterRole</h5>
+                <pre>
+                    <code>
+Create a configmap based on a file, directory, or specified literal value.
+
+A single configmap may package one or more key/value pairs.
+
+When creating a configmap based on a file, the key will default to the basename of the file, and the value will default
+to the file content.  If the basename is an invalid key, you may specify an alternate key.
+
+When creating a configmap based on a directory, each file whose basename is a valid key in the directory will be
+packaged into the configmap.  Any directory entries except regular files are ignored (e.g. subdirectories, symlinks,
+devices, pipes, etc).
+
+Aliases:
+configmap, cm
+
+Examples:
+  # Create a new configmap named my-config based on folder bar
+  kubectl create configmap my-config --from-file=path/to/bar
+
+  # Create a new configmap named my-config with specified keys instead of file basenames on disk
+  kubectl create configmap my-config --from-file=key1=/path/to/bar/file1.txt --from-file=key2=/path/to/bar/file2.txt
+
+  # Create a new configmap named my-config with key1=config1 and key2=config2
+  kubectl create configmap my-config --from-literal=key1=config1 --from-literal=key2=config2
+
+  # Create a new configmap named my-config from the key=value pairs in the file
+  kubectl create configmap my-config --from-file=path/to/bar
+
+  # Create a new configmap named my-config from an env file
+  kubectl create configmap my-config --from-env-file=path/to/bar.env
+
+Options:
+   --from-env-file='': Specify the path to a file to read lines of key=val pairs to create a configmap (i.e. a Docker.env file).
+   --from-file=[]: Key file can be specified using its file path, in which case file basename will be used as configmap key, or optionally with a key and file path, in which case the given key will be used.  Specifying a directory will iterate each named file in the directory whose basename is a valid configmap key.
+   --from-literal=[]: Specify a key and literal value to insert in configmap (i.e. mykey=somevalue)
+
+Usage:
+  kubectl create configmap NAME [--from-file=[key=]source] [--from-literal=key1=value1] [--dry-run=server|client|none]
+[options]
+                    </code>
+                </pre>
+
+                <h5>cronjob</h5>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+                <h5>deployment</h5>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+                <h5>namespace</h5>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+                <h5>poddisruptionbudget</h5>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+                <h5>priorityclass</h5>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+                <h5>quota</h5>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+                <h5>role</h5>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+                <h5>rolebinding</h5>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+                <h5>secret</h5>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+                <h5>service</h5>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+                <h5>serviceaccount</h5>
+                <pre>
+                    <code>
+
+                    </code>
+                </pre>
+
+
+
+
 
 
                 <h3 class="mt-5 mb-3">Necessary Kubernetes Command for Alias</h3>
@@ -236,7 +392,7 @@ $ alias kdn="kubectl describe node"
 $ alias kcr="kubectl run --dry-run=client -o yaml --generator=run-pod/v1"
 $ alias kcc="kubectl create --dry-run=client -o yaml"
 
-$ alias k="kubectl" kg="kubectl get -o wide" kd="kubectl describe" kdl="kubectl delete" kc="kubectl create" kx="kubectl explain --recursive"
+$ alias k="kubectl" kg="kubectl get -o wide" kd="kubectl describe" kdl="kubectl delete" krd="kubectl run --dry-run=client -o yaml" kcd="kubectl create --dry-run=client -o yaml" kc="kubectl create" kx="kubectl explain --recursive"
 
 					    </code>
 				    </pre>
