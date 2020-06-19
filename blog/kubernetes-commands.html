@@ -72,7 +72,7 @@
     <article class="blog-post px-3 py-5 p-md-5">
         <div class="container">
             <header class="blog-post-header">
-                <h2 class="title mb-2">Kubernetes Imperative Command for Resource Generation</h2>
+                <h2 class="title mb-2">Kubernetes Commands for Resource Generation</h2>
                 <div class="meta mb-3">
                     <span class="date">Published on 18/06/2020</span>
                     <span class="time">5 min read</span>
@@ -83,12 +83,73 @@
                 <figure class="blog-banner" style="text-align: center;">
                     <img class="img-fluid" src="../assets/images/blog/kubernetes_command.png" alt="image">
                 </figure>
-                <p>Generators are kubectl commands that generate resources based on a set of inputs (other resources, flags, or a combination of both. </p>
+                <p>In kubernetes, command can be divided into two categories depending on how command generate
+                    resources. Both categories are used depending on resource generation requirements.</p>
+                <ol>
+                    <li>Declarative Approach</li>
+                    <li>Imperative Approach</li>
+                </ol>
 
-                <h3 class="mt-5 mb-3">Generator Types</h3>
-
+                <h3 class="mt-5 mb-3">1. Declarative Approach</h3>
+                Declarative approach used when a definition file needed to declare and using that file kubernetes
+                generate in the cluster.
+                Two steps follow to accomplish in declarative approach.
+                <ol>
+                    <li>Create a definition file</li>
+                    <li>Use command to generate the resources</li>
+                </ol>
                 <pre>
                     <code>
+# 1. define a definition file nginx-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+
+# 2. create resources using definition file nginx-deployment.yaml
+$ kubectl create -f nginx-deployment.yaml
+                    </code>
+                </pre>
+                <h3 class="mt-5 mb-3">2. Imperative Approach</h3>
+                Imperative approach is the way resource can be created using command line instruction without defining
+                any resource. Limited resource can be created using imperative command. In fact all the allowed resource
+                does not create with all properties. But imperative command is very helpful for faster your work
+                process. Additional properties can be added using after generation of definition file from imperative
+                command. Command are used for imperative command.
+                <pre>
+                    <code>
+$ kubectl run
+$ kubectl create
+                    </code>
+                </pre>
+                Imperative command supports total 16 resource generation.
+                <ul>
+                    <li>Kubectl Run: 1</li>
+                    <li>Kubectl Create: 15</li>
+                </ul>
+                <strong>KUBECTL RUN supports only 1 resource.</strong>
+                <pre>
+                    <code>$ kubectl run front-end --image=nginx --port=80</code>
+                </pre>
+                <strong>KUBECTL CREATE supports 15 resources</strong>
+                <pre>
+                    <code>
+
   clusterrole         Create a ClusterRole.
   clusterrolebinding  Create a ClusterRoleBinding for a particular ClusterRole
   configmap           Create a configmap from a local file, directory or literal value
@@ -106,15 +167,7 @@
   serviceaccount      Create a service account with the specified name
                     </code>
                 </pre>
-                <p>You can get more info at <a href="https://highlightjs.org/"
-                                               target="_blank">https://highlightjs.org/</a>. Lorem ipsum dolor sit amet,
-                    consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-                    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-                    pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla
-                    vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
-                    justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
-                    elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat
-                    vitae, eleifend ac, enim. </p>
+
                 <pre>
                     <code>
   $ k run -h
