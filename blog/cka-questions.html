@@ -106,6 +106,33 @@
                         <li>How do you do this in a way that you can see history of what happened?</li>
                         <li>Undo the upgrade</li>
                     </ol>
+                    <pre><code>
+-- create a deployment with image nginx with version 1.12.2 with pods
+$ kc deploy nginx --image=nginx:1.12.2 --dry-run=client -o yaml > deploy-nginx.yaml
+
+-- modify replicas to 2 in deploy-nginx.yaml file and run file deploy-nginx.yaml
+$ kc -f deploy-nginx.yaml
+
+-- scale nginx deploy to 4
+$ k scale deploy nginx --replicas=4 --record=true
+
+-- scale nginx deploy back to 2
+$ k scale deploy nginx --replicas=2 --record=true
+
+-- upgrade nginx version to 1.13.8
+$  k set image deploy nginx nginx=nginx:1.13.8 --record=true
+
+-- How do you do this in a way that you can see history of what happened?
+$  k rollout history deploy nginx
+
+-- Undo the upgrade
+$  k rollout undo deploy nginx
+
+
+
+
+
+                    </code></pre>
                     <strong>Q4. Create a service that uses a scratch disk</strong>
                     <ol>
                         <li>Change the service to mount a disk from the host.</li>
