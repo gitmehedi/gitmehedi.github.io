@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>swapon - Widgets in Odoo</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script defer src="../assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css">
+    <link id="theme-style" rel="stylesheet" href="../assets/css/theme-1.css">
+</head>
+
+
+</head>
+
+<body>
+
+
+<header class="header text-center" style="">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navigation" class="collapse navbar-collapse flex-column">
+            <div class="profile-section pt-3 pt-lg-0">
+                <img class="profile-image mb-3 rounded-circle mx-auto" src="../assets/images/profile.jpg" alt="image">
+                <h1 class="blog-name pt-lg-4 mb-0" style="margin-top: 0px;"><a href="index.html">Mehedi Hasan</a></h1>
+                <h3 class="bio mb-3">DevOps, Python, Odoo, Docker, Kubernetes
+                </h3>
+                <ul class="social-list list-inline py-3 mx-auto">
+                    <li class="list-inline-item"><a target="_blank" href="https://www.linkedin.com/in/nopaws/"><i
+                            class="fab fa-linkedin-in fa-fw"></i></a></li>
+                    <li class="list-inline-item"><a target="_blank" href="https://github.com/gitmehedi"><i
+                            class="fab fa-github-alt fa-fw"></i></a></li>
+                    <li class="list-inline-item"><a target="_blank" href="https://stackoverflow.com/cv/mdmehedi"><i
+                            class="fab fa-stack-overflow fa-fw"></i></a></li>
+                </ul>
+                <hr>
+            </div>
+
+            <ul class="navbar-nav flex-column text-left">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../index.html"><i class="fas fa-home fa-fw mr-2"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../about.html"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="main-wrapper">
+    <article class="blog-post px-3 py-5 p-md-5">
+        <div class="container">
+            <header class="blog-post-header">
+                <h2 class="title mb-2">Widgets in Odoo</h2>
+                <div class="meta mb-3">
+                    <span class="date">Published on July 18, 2018</span>
+                    <span class="time">5 min read</span>
+                </div>
+            </header>
+
+            <div class="blog-post-body">
+                These are the widget list used in odoo “V8.0, V9.0, V10.0” that can make our development more easy,
+                flexible and usable. Here we have the widgets and their descriptions.
+                <strong>Monetary</strong>
+                <p style="padding-left:30px;">The widget=”monetary” was introduced in Odoo 9.0 and is not available in
+                    previous versions. We using it when we want to create a fielfs that unit of measure have linked to
+                    a <em>currency </em>like for example “<em>amount_total_signed</em>“.</p>
+                <strong>Statusbar</strong>
+                <p style="padding-left:30px;">The widget =”statusbars” gives you the ability to show the progress to the
+                    user in a visual way. Statusbars are ideal to use in combination with buttons which will modify the
+                    state where a record is in.</p>
+                <strong>Handle</strong>
+                <p style="padding-left:30px;">The widget=”handle” gives you the option to re-order lines, making records
+                    drag and droppable. When you need to be able to rearrange the order of a field rows, you want to
+                    enable user to drag the line up and down the list. This is especially when the rows represent
+                    something of which order is important.</p>
+                <strong>Mail Followers & Mail Thread</strong>
+                <p style="padding-left:30px;">The widget=”mail_followers” and widget=”mail_thread” are used  when we
+                    want to add our fields the possibility to create messages, follow it and add attachments.</p>
+                <strong>Statinfo</strong>
+                <p style="padding-left:30px;">The widget=”statinfo” is used when we have a Fields to display statics</p>
+                <strong>Selection</strong>
+                <p style="padding-left:30px;">The widget=”selection” adds a drop down list when we have a many2one
+                    field.</p>
+                <strong>Progressbar</strong>
+                <p style="padding-left:30px;">The widget=”progressbar” is used to show the progress of a task in
+                    percentage.</p>
+                <strong>Many2many Tags</strong>
+                <p style="padding-left:30px;">The widget=”many2many_tags” Present list of tags. List labels as
+                    filters.</p>
+                <strong>Image</strong>
+                <p style="padding-left:30px;">The wigdet=”image” For adding an image, we add a binary field in the
+                    model.</p>
+                <strong>One2many List</strong>
+                <p style="padding-left:30px;">The widget=”one2many_list” is used when we want to view a filed as
+                    one2many.</p>
+                <strong>Radio</strong>
+                <p style="padding-left:30px;">The widget=”radio” is used as a radio button.</p>
+                <strong>Gauge</strong>
+                <p style="padding-left:30px;">There is a module called “Gauge Widget for Kanban” installed by default in
+                    odoo, it allows to add gauge widget to kanban board as the name suggests.</p>
+                <strong>Float Time</strong>
+                <p style="padding-left:30px;">The widget=”float_time” shows the floats as if they represent time.</p>
+                <strong>HTML</strong>
+                <p style="padding-left:30px;">The widget=”hml” is used to store HTML. It can save the text format.</p>
+                <strong>URL</strong>
+                <p style="padding-left:30px;">The widget=”url” is used when we have a field that create a link http.</p>
+                <strong>Percentpie</strong>
+                <p style="padding-left:30px;">The widget=”percentpie” show a pie chart with percentage ( does not work
+                    in the tree view or kanban).</p>
+                <strong>Many2one Button</strong>
+                <p style="padding-left:30px;">The widget=”many2onebutton” create a simple button that indicates if it’s
+                    assigned.</p>
+                <strong>Many2many Checkboxes</strong>
+                <p style="padding-left:30px;">The widget=”many2many_checkboxes” List of checkboxes.</p>
+                <strong>Many2many Kanban</strong>
+                <p style="padding-left:30px;">The widget=”many2many_kanban” view of a kanban that is associated kanban.
+                    Be aware that the view needs defined.</p>
+                <strong>Email</strong>
+                <p style="padding-left:30px;">The widget=”email” create a link to send an E-mail.</p>
+            </div>
+        </div>
+    </article>
+</div>
+
+<footer class="footer text-center py-2 theme-bg-dark">
+    <small class="copyright"> © 2020 by Mehedi Hasan | Powered by GitHub pages</small>
+</footer>
+
+
+<!-- Javascript -->
+<script src="../assets/plugins/jquery-3.4.1.min.js"></script>
+<script src="../assets/plugins/popper.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Page Specific JS -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+<!-- Custom JS -->
+<script src="../assets/js/blog.js"></script>
+
+<!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+<script src="../assets/js/demo/style-switcher.js"></script>
+
+
+</body>
+</html> 
+
