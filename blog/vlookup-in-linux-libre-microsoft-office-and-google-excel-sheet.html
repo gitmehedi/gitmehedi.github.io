@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>swapon - VLOOKUP in Linux Libre, Microsoft Office and Google Excel Sheet</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <script defer src="../assets/fontawesome/js/all.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/monokai-sublime.min.css">
+    <link id="theme-style" rel="stylesheet" href="../assets/css/theme-1.css">
+</head>
+
+
+</head>
+
+<body>
+
+
+<header class="header text-center" style="">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navigation" class="collapse navbar-collapse flex-column">
+            <div class="profile-section pt-3 pt-lg-0">
+                <img class="profile-image mb-3 rounded-circle mx-auto" src="../assets/images/profile.jpg" alt="image">
+                <h1 class="blog-name pt-lg-4 mb-0" style="margin-top: 0px;"><a href="index.html">Mehedi Hasan</a></h1>
+                <h3 class="bio mb-3">DevOps, Python, Odoo, Docker, Kubernetes
+                </h3>
+                <ul class="social-list list-inline py-3 mx-auto">
+                    <li class="list-inline-item"><a target="_blank" href="https://www.linkedin.com/in/nopaws/"><i
+                            class="fab fa-linkedin-in fa-fw"></i></a></li>
+                    <li class="list-inline-item"><a target="_blank" href="https://github.com/gitmehedi"><i
+                            class="fab fa-github-alt fa-fw"></i></a></li>
+                    <li class="list-inline-item"><a target="_blank" href="https://stackoverflow.com/cv/mdmehedi"><i
+                            class="fab fa-stack-overflow fa-fw"></i></a></li>
+                </ul>
+                <hr>
+            </div>
+
+            <ul class="navbar-nav flex-column text-left">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../index.html"><i class="fas fa-home fa-fw mr-2"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../about.html"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<div class="main-wrapper">
+    <article class="blog-post px-3 py-5 p-md-5">
+        <div class="container">
+            <header class="blog-post-header">
+                <h2 class="title mb-2">VLOOKUP in Linux Libre, Microsoft Office and Google Excel Sheet</h2>
+                <div class="meta mb-3">
+                    <span class="date">Published on July 3, 2018</span>
+                    <span class="time">5 min read</span>
+                </div>
+            </header>
+
+            <div class="blog-post-body">
+                <h3>VLOOKUP</h3>
+                Most of the time you are looking for an exact match when you use the VLOOKUP function in
+                Excel. Let's take a look at the arguments of the VLOOKUP function.
+
+                The VLOOKUP function below looks up the value 53 (first argument) in the leftmost column
+                of the red table (second argument).
+
+                Linux Libre Office and Google Excel Sheet
+                <pre><code>=VLOOKUP(search_value, sheet_name! start_of_range:end_of_range, index, sorting)</code></pre>
+                <p><strong>search_value:</strong> Search a value in range if anything exists.</p>
+                <p><strong>sheet_name:</strong>Sheet name if multiple tab available in excel sheet. </p>
+                <p><strong>start_of_range:</strong> Start of search range. If search range has only one column
+                    then start range must be starting cell of column, if search range has multiple column then start
+                    range must be start cell of range's first column.</p>
+                <p><strong>end_of_range:</strong> End of search range. If search range has only one column then
+                    end range must be ending cell of column, if search range has multiple column then end range must be
+                    end cell of range's last column.</p>
+                <p><strong>index:</strong> If search range has multiple column, and search value match with search
+                    column then which column value will use in output. Expected value will be numerical index line 1,2,3
+                    which is counting from search range column.</p>
+                <p><strong>sorting:</strong> If there is any sorting needed it just mention that. Expected value
+                    will be true and false.</p>
+
+                <pre>
+                    <code>=IFERROR(VLOOKUP(D2,$A$2:$C$1000,2,false),0)</code>
+                </pre>
+            </div>
+        </div>
+    </article>
+</div>
+
+<footer class="footer text-center py-2 theme-bg-dark">
+    <small class="copyright"> © 2020 by Mehedi Hasan | Powered by GitHub pages</small>
+</footer>
+
+
+<!-- Javascript -->
+<script src="../assets/plugins/jquery-3.4.1.min.js"></script>
+<script src="../assets/plugins/popper.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Page Specific JS -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+
+<!-- Custom JS -->
+<script src="../assets/js/blog.js"></script>
+
+<!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+<script src="../assets/js/demo/style-switcher.js"></script>
+
+
+</body>
+</html> 
+
