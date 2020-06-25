@@ -85,130 +85,335 @@
             </header>
 
             <div class="blog-post-body">
-                <strong>Q1. Bootstrap a Kubernetes v1.10 cluster using kubeadm</strong>
-                <p>You need to bootstrap a Kubernetes v1.10 cluster with one master and one worker node using
-                    kubeadm.</p>
-                <strong>Q2. Enable cluster auditing</strong>
-                <ol>
-                    <li>Enable cluster wide auditing. You can use the audit policy provided <a
-                            href="https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/audit/audit-policy.yaml">here.</a>
-                    </li>
-                    <li>Make sure the audit logs are properly generated and saved to a log file.</li>
-                </ol>
-                <strong>Q3. Create a deployment running nginx version 1.12.2 that will run in 2 pods</strong>
-                <ol>
-                    <li>Scale this to 4 pods.</li>
-                    <li>Scale it back to 2 pods.</li>
-                    <li>Upgrade nginx version to 1.13.8</li>
-                    <li>Check the status of the upgrade</li>
-                    <li>How do you do this in a way that you can see history of what happened?</li>
-                    <li>Undo the upgrade</li>
-                </ol>
-                <strong>Q4. Create a service that uses a scratch disk</strong>
-                <ol>
-                    <li>Change the service to mount a disk from the host.</li>
-                    <li>Change the service to mount a persistent volume.</li>
-                </ol>
-                <strong>Q5. Create a pod with a Liveness and Readiness probes</strong>
-                <p>
-                    You need to create a pod called <i>upNready</i> that has liveness and readiness probes configured
-                    for it.
-                    Feel free to choose any application of your choice for the pod.
-                </p>
-                <strong>Q6. Create a daemon set</strong>
-                <p>
-                    Create a daemon set and change the update strategy to do a rolling update with a delay of 30 seconds
-                    between each update.
-                </p>
-                <strong>Q7. Create a busybox pod</strong>
-                <p>
-                    Create a busybox pod without using a manifest and then edit the manifest as per your liking.
-                </p>
-                <strong>Q8. Create a pod that uses secrets</strong>
-                <ol>
-                    <li>Pull secrets from environment variables.</li>
-                    <li>Pull secrets from a volume.</li>
-                    <li>Dump the secrets out via kubectl to show it worked.</li>
-                </ol>
-                <strong>Q9. Create a scheduled Job</strong>
-                <p>
-                    Create a job that runs every 3 minutes and prints out the current time.
-                </p>
-                <strong>Q10. Create a parallel Job</strong>
-                <p>
-                    Create a job that runs 80 times, with 5 containers at a time, and prints "Hello parallel world".
-                </p>
-                <strong>Q11. Create a service </strong>
-                <p>
-                    Create a service that uses an external load balancer and points to a 3 pod cluster running nginx.
-                </p>
-                <strong>Q12. Create a horizontal autoscaling group</strong>
-                <p>
-                    Create a horizontal autoscaling group that should start with 2 pods and scale when CPU usage is over
-                    50%.
-                </p>
-                <strong>Q13. Create pods with restricted resource usage</strong>
-                <ol>
-                    <li>Create 2 pods that has a CPU limit of 2 and should request 0.5 CPU when started.</li>
-                    <li>Limit the memory usage for one of the pod to 100Mb.</li>
-                </ol>
-                <strong>Q14. Create an init container</strong>
-                <p>
-                    Create a nginx pod with an init container that populates the webroot of nginx pod with the homepage
-                    of <i>Kubernauts.io</i>
-                </p>
-                <strong>Q15. Create a pod with specific UID</strong>
-                <p>
-                    Create a pod that runs all processes as user 1000.
-                </p>
-                <strong>Q16. Create a namespace</strong>
-                <ol>
-                    <li>Run a pod in the new namespace.</li>
-                    <li>Put memory limits on the namespace.</li>
-                    <li>Limit pods to 2 persistent volumes in this namespace.</li>
-                </ol>
-                <strong>Q17. Write an ingress rule that redirects calls to /foo to one service and to /bar to
-                    another</strong>
-                <strong>Q18. Write a service that exposes nginx on a nodeport</strong>
-                <ol>
-                    <li>Change it to use a cluster port.</li>
-                    <li>Scale the service.</li>
-                    <li>Change it to use an external IP.</li>
-                    <li>Change it to use a load balancer.</li>
-                </ol>
-                <strong>Q19. Backup the etcd database</strong>
-                <ol>
-                    <li>Backup the etcd database at <i>/opt/baks/etcd0001/ .</i></li>
-                </ol>
-                <strong>Q20. Create a networking policy such that only pods with the label access=granted can talk to
-                    it</strong>
-                <ol>
-                    <li>Create an nginx pod and attach this policy to it.</li>
-                    <li>Create a busybox pod and attempt to talk to nginx - should be blocked.</li>
-                    <li>Attach the label to busybox and try again - should be allowed.</li>
-                </ol>
-                <strong>Q21. Enable certificate rotation for the cluster.</strong> <br>
-                <strong>Q22. Create 2 pod definitions.</strong> <br>
-                Create 2 pod definitions with following features:
-                <ol>
-                    <li>The first pod should be called master and second pod should be called sidecar.</li>
-                    <li>The second pod should be scheduled to run anywhere the first pod is running i.e. The 2nd pod
-                        should run alongside the first pod on the same node.
-                    </li>
-                </ol>
-                <strong>Q23. Debug pod failure</strong> <br>
-                Deploy a pod using <a
-                    href="https://github.com/kubernetes/website/blob/master/content/en/docs/tasks/debug-application-cluster/termination.yaml">this
-                manifest</a>.
-                <ol>
-                    <li>Monitor the pod's deployment status.</li>
-                    <li>Debug the cause of pod failure.</li>
-                    <li>Customize the termination message as per your liking.</li>
-                </ol>
-                <strong>Q24. Audit the cluster</strong>
-                <p>
-                    Audit the whole cluster to determine the cluster health and activities.
-                </p>
+                <div>
+                    <h4 style="color: green;">Question Set 1: </h4>
+                    <strong>Q1. Bootstrap a Kubernetes v1.10 cluster using kubeadm</strong>
+                    <p>You need to bootstrap a Kubernetes v1.10 cluster with one master and one worker node using
+                        kubeadm.</p>
+                    <strong>Q2. Enable cluster auditing</strong>
+                    <ol>
+                        <li>Enable cluster wide auditing. You can use the audit policy provided <a
+                                href="https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/audit/audit-policy.yaml">here.</a>
+                        </li>
+                        <li>Make sure the audit logs are properly generated and saved to a log file.</li>
+                    </ol>
+                    <strong>Q3. Create a deployment running nginx version 1.12.2 that will run in 2 pods</strong>
+                    <ol>
+                        <li>Scale this to 4 pods.</li>
+                        <li>Scale it back to 2 pods.</li>
+                        <li>Upgrade nginx version to 1.13.8</li>
+                        <li>Check the status of the upgrade</li>
+                        <li>How do you do this in a way that you can see history of what happened?</li>
+                        <li>Undo the upgrade</li>
+                    </ol>
+                    <strong>Q4. Create a service that uses a scratch disk</strong>
+                    <ol>
+                        <li>Change the service to mount a disk from the host.</li>
+                        <li>Change the service to mount a persistent volume.</li>
+                    </ol>
+                    <strong>Q5. Create a pod with a Liveness and Readiness probes</strong>
+                    <p>
+                        You need to create a pod called <i>upNready</i> that has liveness and readiness probes
+                        configured
+                        for it.
+                        Feel free to choose any application of your choice for the pod.
+                    </p>
+                    <strong>Q6. Create a daemon set</strong>
+                    <p>
+                        Create a daemon set and change the update strategy to do a rolling update with a delay of 30
+                        seconds
+                        between each update.
+                    </p>
+                    <strong>Q7. Create a busybox pod</strong>
+                    <p>
+                        Create a busybox pod without using a manifest and then edit the manifest as per your liking.
+                    </p>
+                    <strong>Q8. Create a pod that uses secrets</strong>
+                    <ol>
+                        <li>Pull secrets from environment variables.</li>
+                        <li>Pull secrets from a volume.</li>
+                        <li>Dump the secrets out via kubectl to show it worked.</li>
+                    </ol>
+                    <strong>Q9. Create a scheduled Job</strong>
+                    <p>
+                        Create a job that runs every 3 minutes and prints out the current time.
+                    </p>
+                    <strong>Q10. Create a parallel Job</strong>
+                    <p>
+                        Create a job that runs 80 times, with 5 containers at a time, and prints "Hello parallel world".
+                    </p>
+                    <strong>Q11. Create a service </strong>
+                    <p>
+                        Create a service that uses an external load balancer and points to a 3 pod cluster running
+                        nginx.
+                    </p>
+                    <strong>Q12. Create a horizontal autoscaling group</strong>
+                    <p>
+                        Create a horizontal autoscaling group that should start with 2 pods and scale when CPU usage is
+                        over
+                        50%.
+                    </p>
+                    <strong>Q13. Create pods with restricted resource usage</strong>
+                    <ol>
+                        <li>Create 2 pods that has a CPU limit of 2 and should request 0.5 CPU when started.</li>
+                        <li>Limit the memory usage for one of the pod to 100Mb.</li>
+                    </ol>
+                    <strong>Q14. Create an init container</strong>
+                    <p>
+                        Create a nginx pod with an init container that populates the webroot of nginx pod with the
+                        homepage
+                        of <i>Kubernauts.io</i>
+                    </p>
+                    <strong>Q15. Create a pod with specific UID</strong>
+                    <p>
+                        Create a pod that runs all processes as user 1000.
+                    </p>
+                    <strong>Q16. Create a namespace</strong>
+                    <ol>
+                        <li>Run a pod in the new namespace.</li>
+                        <li>Put memory limits on the namespace.</li>
+                        <li>Limit pods to 2 persistent volumes in this namespace.</li>
+                    </ol>
+                    <strong>Q17. Write an ingress rule that redirects calls to /foo to one service and to /bar to
+                        another</strong>
+                    <strong>Q18. Write a service that exposes nginx on a nodeport</strong>
+                    <ol>
+                        <li>Change it to use a cluster port.</li>
+                        <li>Scale the service.</li>
+                        <li>Change it to use an external IP.</li>
+                        <li>Change it to use a load balancer.</li>
+                    </ol>
+                    <strong>Q19. Backup the etcd database</strong>
+                    <ol>
+                        <li>Backup the etcd database at <i>/opt/baks/etcd0001/ .</i></li>
+                    </ol>
+                    <strong>Q20. Create a networking policy such that only pods with the label access=granted can talk
+                        to
+                        it</strong>
+                    <ol>
+                        <li>Create an nginx pod and attach this policy to it.</li>
+                        <li>Create a busybox pod and attempt to talk to nginx - should be blocked.</li>
+                        <li>Attach the label to busybox and try again - should be allowed.</li>
+                    </ol>
+                    <strong>Q21. Enable certificate rotation for the cluster.</strong> <br>
+                    <strong>Q22. Create 2 pod definitions.</strong> <br>
+                    Create 2 pod definitions with following features:
+                    <ol>
+                        <li>The first pod should be called master and second pod should be called sidecar.</li>
+                        <li>The second pod should be scheduled to run anywhere the first pod is running i.e. The 2nd pod
+                            should run alongside the first pod on the same node.
+                        </li>
+                    </ol>
+                    <strong>Q23. Debug pod failure</strong> <br>
+                    Deploy a pod using <a
+                        href="https://github.com/kubernetes/website/blob/master/content/en/docs/tasks/debug-application-cluster/termination.yaml">this
+                    manifest</a>.
+                    <ol>
+                        <li>Monitor the pod's deployment status.</li>
+                        <li>Debug the cause of pod failure.</li>
+                        <li>Customize the termination message as per your liking.</li>
+                    </ol>
+                    <strong>Q24. Audit the cluster</strong>
+                    <p>
+                        Audit the whole cluster to determine the cluster health and activities.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="color: green;">Question Set 2:</h4>
+                    <strong>Q1. Create a initContainer with image busybox which will run fix time before nginx pod
+                        ready.</strong><br>
+                    <strong>Q2. List all pod which using the service nginx-service.</strong><br>
+                    <strong>Q3. Add security context' capabilites on a container which will set date on
+                        pod.</strong><br>
+                    <strong>Q4. Create a daemon service name nginx with proper tolleration.</strong><br>
+                    <strong>Q5. Create a new deployment named 'red' with the NGINX image and 3 replicas, and ensure it
+                        gets placed on the master node only. Use the right operator.</strong><br>
+                    <strong>Q6. Create a pod with selected any of the images. Image name redis,nginx</strong><br>
+                    <strong>Q7. Create deployment with name deploy-nginx which accept traffic with service
+                        service-nginx.</strong><br>
+                    <strong>Q8. get all the cluster users and write in a filename /var/answer/UJDHH.TXT</strong><br>
+                    <strong>Q9. Create a secret with name env-secret with value password=user1 and use it in pod
+                        envFrom.</strong><br>
+                    <strong>Q10. To update a cluster we need to take the node down. Down the K82 .</strong><br>
+                    <strong>Q11. Take a ETCD cluster backup on location /tmp/cluster.bk. All the required values
+                        given.</strong><br>
+                    <strong>Q12. A pod deployed cluster-pod in the system. Create a service cluster-service in which POD
+                        will be access.</strong><br>
+                    <strong>Q13. Create a egress rule to a pod egree-pod where ip does not need to mention.</strong><br>
+                    <strong>Q14. Write dns information to the file /var/answer/HDKDKD.txt from the pod log-pod.</strong><br>
+                    <strong>Q15. Reshedule pod nginx-pod with image nginx in node k82 in namespace
+                        cluster-scheduler.</strong><br>
+                    <strong>Q16. Set labels with proper information ???</strong><br>
+                    <strong>Q17. Create a deployment with image nginx and name will be dep-nginx. Upgrade the image of
+                        the deployment nginx-12.04. After proper upgrade backto the previous version of the image
+                        nginx.</strong><br>
+                    <strong>Q18. Add a ConfigMap password with configuring in volume. ConfigMap value is APP_COLOR=RED
+                        and volume name is color-volume.</strong><br>
+                    <strong>Q19. Create a volume pv-log with empty with claim name pvc-log and mount in pod redis with
+                        image redis.</strong><br>
+                </div>
+                <div>
+                    <h4 style="color: green;">Question Set 3:</h4>
+                    <strong>Q1. Create a pod named “web” using image nginx:1.11.9-alpine, on ports 80 and
+                        443</strong><br>
+                    <strong>Q2. Create a service to expose that pod, named as “webservice”</strong><br>
+                    <strong>Q3. Copy the dns records for the service in file /opt/
+                        <yournamespace>/web.dnsrecord
+                    </strong><br>
+                    <strong>Q4. Create a deployment with “redis” image on port 6379 and expose a service.</strong><br>
+                    <strong>Q5. Increase the number of replicas to 3</strong><br>
+                    <strong>Q6. Perform a rolling update to version 4.0.11-alpine.</strong><br>
+                    <strong>Q7. Copy pod spec to file /opt/yournamespace/podversion.</strong><br>
+                    <strong>Q8. Undo the image update to redis.. and confirm pod spec image matches</strong><br>
+                    <strong>Q9. Create a multi container pod, with redis, memcached, nginx and mysql, assign resource
+                        memory limit as 250M for each container.</strong><br>
+                    <strong>Q10. List all the pods in your namespace sorted by name.</strong><br>
+                    <strong>Q10. List all the pods in your namespace sorted by name. at directory “/export/volume” copy
+                        the pod spec into /opt/yourname/shellvolume</strong><br>
+                    <strong>Q12. To the earlier pod “shell” attach liveliness probe to check the file
+                        /export/volume/app.log being available.</strong><br>
+                    <strong>Q13. Setup init container into shell pod that got created just now, to create a file
+                        /export/volume/app.log empty file before the busybox container is run.</strong><br>
+                    <strong>Q14. Create a secret “
+                        <yourname>-secret” with user=
+                            <yourname>, secret=”SOMESECRET” edit the “shell” pod to have the above secret imported as a
+                                volume at /opt/mysecretvolume, and MYSECRET environment defined to map to key secret in
+                                “
+                                <yourname>-secret”
+                    </strong><br>
+                    <strong>Q15. Create a persistent Volume named “
+                        <yourname>”
+                            specification that defines a volume for 10Gi mapping to hostpath /opt/
+                            <yourname>
+                    </strong><br>
+                    <strong>Q16. Take the etcd database snapshot saved into file /opt/
+                        <yourname>/etcd snapshotthe certificates and keys are available in /opt/certs directory.
+                    </strong><br>
+                    <strong>Q17. Get the dns records for the service and pods for the deployment “redis”
+                        copied to file /opt/
+                        <yourname>/dnsrecord.redis
+                    </strong><br>
+                    <strong>Q18. List all the pods that are serviced by the service “webservice”and copy the output in
+                        /opt/
+                        <yourname>/webservice.targets
+                    </strong><br>
+                </div>
+                <div>
+                    <h4 style="color: green;">Question Set 4:</h4>
+                    <strong>Q1. Create a pod redis version 5.0-rc4-alpine named “mycache”</strong><br>
+                    <strong>Q2. Upgrade the pod to use 5.0-rc-alpine and save the pod spec as p2
+                        along with the command used.</strong><br>
+                    <strong>Q3. Create a config map from file /var/lib/kubelet/config.yaml
+                        and create a nginx pod that sees the configmap as a volume in the same path within the
+                        container,
+                        assign port 80 and expose it as a service “webservice” as well. The pod should be named
+                        “web”</strong><br>
+                    <strong>Q4. Create a busybox container that sleeps 60000, named “mybox”.</strong><br>
+                    <strong>Q5. Attach liveness probe to the container and restart if environment USER is null or
+                        undefined.
+                        Report pod status after attaching liveness probe.</strong><br>
+                    <strong>Q6. Pass ENV variables “USER” and “SECRET”
+                        from a secret “boxsecret” defined already that has these initialized as
+                        “bob”/”somesupersecret”</strong><br>
+                    <strong>Q7. Attach resource requests and limits for cpu and memory at 10m/10m and 100m/1000M
+                        for “mybox” pod above.</strong><br>
+                    <strong>Q8. Create a pv named “yourname-volume” that maps to hostpath “/opt/volume/yourname/” as
+                        100G capacity, and
+                        policy reclaim.</strong><br>
+                    <strong>Q9. Create a deployment “myvolume” for memcached that get a 1G volume mapped from
+                        yourname-volume at /opt/myvolume</strong><br>
+                    <strong>Q10. Scale the deployment to have 2 replicas.</strong><br>
+                    <strong>Q11. Update myvolume deployment to have 1.5.10-alpine image on all replicas.</strong><br>
+                    <strong>Q12. Setup a init container in myvolume deployment to init a file in the mapped volume
+                        /opt/myvolume/config.yaml before the real memcached kick starts.</strong><br>
+                    <strong>Q13. Monitor pod lifecycle and log messages when pod/container starts/stops.</strong><br>
+                    <strong>Q14. Create a multi-container pod with nginx, memcached, redis all sharing the volume mount
+                        at /opt/myvolume with a 1G claim from your earlier pv created.</strong><br>
+                    <strong>Q15. List all objects in your namespace that has label “ques=p5”
+                        Find all pods that are serviced by your webservice.</strong><br>
+                </div>
+                <div>
+                    <h4 style="color: green;">Question Set 5:</h4>
+                    <strong>Q1. Create a node that has a SSD and label it as such.</strong><br>
+                    <strong>Q2. Create a pod that is only scheduled on SSD nodes. </strong><br>
+                    <strong>Q3. Create 2 pod definitions: the second pod should be scheduled to run anywhere the first
+                        pod
+                        is running — 2nd pod runs alongside the first pod.</strong><br>
+                    <strong>Q4. Create a deployment running nginx version 1.12.2 that will run in 2 pods</strong><br>
+                    <p>
+                        a. Scale this to 4 pods.
+                        b. Scale it back to 2 pods.
+                        c. Upgrade this to 1.13.8
+                        d. Check the status of the upgrade
+                        e. How do you do this in a way that you can see history of what happened?
+                        f. Undo the upgrade
+                    </p>
+                    <strong>Q5. Create a service that uses a scratch disk.</strong><br>
+                    <p>
+                        a. Change the service to mount a disk from the host.
+                        b. Change the service to mount a persistent volume.
+                    </p>
+                    <strong>Q6. Create a pod that has a liveness check</strong><br>
+                    <strong>Q7. Create a service that manually requires endpoint creation — and create that
+                        too</strong><br>
+                    <strong>Q8. Create a daemon set
+                        a. Change the update strategy to do a rolling update but delaying 30 seconds between pod
+                        updates</strong><br>
+                    <strong>Q9. Create a static pod</strong><br>
+                    <strong>Q10. Create a busybox container without a manifest. Then edit the manifest.</strong><br>
+                    <strong>Q11. Create a pod that uses secrets</strong><br>
+                    <p>
+                        a. Pull secrets from environment variables
+                        b. Pull secrets from a volume
+                        c. Dump the secrets out via kubectl to show it worked
+                    </p>
+                    <strong>Q12. Create a job that runs every 3 minutes and prints out the current time.</strong><br>
+                    <strong>Q13. Create a job that runs 20 times, 5 containers at a time, and prints “Hello parallel
+                        world”</strong><br>
+                    <strong>Q14. Create a service that uses an external load balancer and points to a 3 pod cluster
+                        running
+                        nginx.</strong><br>
+                    <strong>Q15. Create a horizontal autoscaling group that starts with 2 pods and scales when CPU usage
+                        is
+                        over 50%.</strong><br>
+                    <strong>Q16. Create a custom resource definition</strong><br>
+                    <p>a. Display it in the API with curl</p>
+                    <strong>Q17. Create a networking policy such that only pods with the label access=granted can talk
+                        to
+                        it.</strong><br>
+                    <p>a. Create an nginx pod and attach this policy to it.
+                        b. Create a busybox pod and attempt to talk to nginx — should be blocked
+                        c. Attach the label to busybox and try again — should be allowed</p>
+                    <strong>Q18. Create a service that references an externalname.</strong><br>
+                    <p>a. Test that this works from another pod</p>
+                    <strong>Q19. Create a pod that runs all processes as user 1000.</strong><br>
+                    <strong>Q20. Create a namespace</strong><br>
+                    <p>a. Run a pod in the new namespace
+                        b. Put memory limits on the namespace
+                        c. Limit pods to 2 persistent volumes in this namespace</p>
+                    <strong>Q21. Write an ingress rule that redirects calls to /foo to one service and to /bar to
+                        another</strong><br>
+                    <strong>Q22. Write a service that exposes nginx on a nodeport</strong><br>
+                    <p>a. Change it to use a cluster port
+                        b. Scale the service
+                        c. Change it to use an external IP
+                        d. Change it to use a load balancer</p>
+                    <strong>Q23. Deploy nginx with 3 replicas and then expose a port</strong><br>
+                    <p>a. Use port forwarding to talk to a specific port</p>
+                    <strong>Q24. Make an API call using CURL and proper certs</strong><br>
+                    <strong>Q25. Upgrade a cluster with kubeadm</strong><br>
+                    <strong>Q26. Get logs for a pod</strong><br>
+                    <strong>Q27. Deploy a pod with the wrong image name (like — image=nginy) and find the error
+                        message.</strong><br>
+                    <strong>Q28. Get logs for kubectl</strong><br>
+                    <strong>Q29. Get logs for the scheduler</strong><br>
+                    <strong>Q30. Restart kubelet</strong><br>
+                    <strong>Q31. Convert a CRT to a PEM</strong><br>
+                    <p>a. Convert it back</p>
+                    <strong>Q32. Backup an etcd cluster</strong><br>
+                    <strong>Q33. List the members of an etcd cluster</strong><br>
+                    <strong>Q34 Find the health of etcd</strong><br>
+                </div>
             </div>
         </div>
     </article>
