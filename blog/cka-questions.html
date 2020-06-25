@@ -135,11 +135,42 @@ $  k rollout undo deploy nginx
                     </ol>
                     <strong>Q5. Create a pod with a Liveness and Readiness probes</strong>
                     <p>
-                        You need to create a pod called <i>upNready</i> that has liveness and readiness probes
-                        configured
-                        for it.
-                        Feel free to choose any application of your choice for the pod.
+                        You need to create a pod called <b>upNready</b> that has liveness and readiness probes
+                        configured for it. Feel free to choose any application of your choice for the pod.
                     </p>
+                    <pre>
+                        <code>
+-- create a pod with name upnready
+$ krd upnready --image=nginx > livred-nginx.yaml
+
+-- add livenessProbe and readinessProbe properties in livred-nginx.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: upnready
+  name: upnready
+spec:
+  containers:
+  - image: nginx
+    name: upnready
+    resources: {}
+    livenessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/healthy
+    readinessProbe:
+       httpGet:
+         path: /healthz
+         port: 8080
+
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+                        </code>
+</pre>
                     <strong>Q6. Create a daemon set</strong>
                     <p>
                         Create a daemon set and change the update strategy to do a rolling update with a delay of 30
