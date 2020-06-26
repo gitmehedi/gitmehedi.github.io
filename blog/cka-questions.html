@@ -224,12 +224,68 @@ spec:
                     <p>
                         Create a busybox pod without using a manifest and then edit the manifest as per your liking.
                     </p>
+                    <pre><code>
+-- create a pod with image busybox with command sleep after 600 seconds
+$ kubectl run busy-pod --image=busybox --command sleep 600
+                    </code></pre>
                     <strong>Q8. Create a pod that uses secrets</strong>
                     <ol>
                         <li>Pull secrets from environment variables.</li>
                         <li>Pull secrets from a volume.</li>
                         <li>Dump the secrets out via kubectl to show it worked.</li>
                     </ol>
+                    <pre>
+                        <code>
+-- create a secret with name colors with a secret key APP_COLOR=RED and DB_NAME=postgres
+$ kubectl create secret generic colors --from-literal=APP_COLOR=RED --from-literal=DB_NAME=postgres
+
+-- pull secret in pod using environment variable. create a pod using imperative command and add envti
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: busy-env
+  name: busy-env
+spec:
+  containers:
+  - env:
+    - name: APP_COLOR
+      valueFrom:
+        secretKeyRef:
+           name: colors
+           key: APP_COLOR
+    image: nginx
+    name: busy-env
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+-- pull secrets from a volume
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: busy-env
+  name: busy-env
+spec:
+  containers:
+  - image: nginx
+    name: busy-env
+    resources: {}
+    volumeMounts:
+    - name: app-secret
+      mountPath: /secret
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+  volumes:
+  - name: app-secret
+    secret:
+       secretName: colors
+status: {}
+                        </code>
+                    </pre>
                     <strong>Q9. Create a scheduled Job</strong>
                     <p>
                         Create a job that runs every 3 minutes and prints out the current time.
