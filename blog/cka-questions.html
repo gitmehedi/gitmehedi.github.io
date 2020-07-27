@@ -417,46 +417,163 @@ $ kg po --show-labels | grep -F -f <(kg svc --no-headers | awk '{print $7}')
                     <h4 style="color: green;">Question Set 3:</h4>
                     <strong>Q1. Create a pod named “web” using image nginx:1.11.9-alpine, on ports 80 and
                         443</strong><br>
+                    <pre><code>
+# Command
+$ kubectl run web --image=nginx:1.11.9-alpine --port=80 --dry-run=client -o yaml > web.yaml
+
+# Output
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: web
+  name: web
+spec:
+  containers:
+  - image: nginx:1.11.9-alpine
+    name: web
+    ports:
+    - containerPort: 80
+    - containerPort: 443
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+                    </code></pre>
                     <strong>Q2. Create a service to expose that pod, named as “webservice”</strong><br>
-                    <strong>Q3. Copy the dns records for the service in file /opt/
-                        <yournamespace>/web.dnsrecord
+                    <pre><code>
+# Command
+$ kubectl expose pod web --name=webservice --type=ClusterIP
+# Output
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    run: web
+  name: webservice
+spec:
+  ports:
+  - name: port-1
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  - name: port-2
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    run: web
+  type: ClusterIP
+status:
+  loadBalancer: {}
+                    </code></pre>
+                    <strong>Q3. Copy the dns records for the service in file /opt/web.dnsrecord
                     </strong><br>
                     <strong>Q4. Create a deployment with “redis” image on port 6379 and expose a service.</strong><br>
+                    <pre><code>
+# Command
+$ kubectl create deploy redis-dp --image redis --dry-run=client -o yaml > redis-dp.yaml
+
+# Output
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: redis-dp
+  name: redis-dp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-dp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: redis-dp
+    spec:
+      containers:
+      - image: redis
+        name: redis
+        resources: {}
+status: {}
+                    </code></pre>
                     <strong>Q5. Increase the number of replicas to 3</strong><br>
+                    <pre><code>$ kubectl scale deploy redis-dp --replicas=3</code></pre>
                     <strong>Q6. Perform a rolling update to version 4.0.11-alpine.</strong><br>
+                    <pre><code>$ kubectl set image deploy redis-dp redis=redis:4.0.11-alpine --record=True</code></pre>
                     <strong>Q7. Copy pod spec to file /opt/yournamespace/podversion.</strong><br>
+                    <pre><code>$ kubectl get deploy redis-dp -o yaml > /opt/yournamespace/podversion</code></pre>
                     <strong>Q8. Undo the image update to redis.. and confirm pod spec image matches</strong><br>
+                    <pre><code>$ kubectl rollout undo deploy redis-dp</code></pre>
                     <strong>Q9. Create a multi container pod, with redis, memcached, nginx and mysql, assign resource
                         memory limit as 250M for each container.</strong><br>
+                    <pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: multicont
+  name: multicont
+spec:
+  containers:
+  - image: redis
+    name: multicont
+    resources:
+      limits:
+        memory: 250Mi
+  - image: memcached
+    name: memcached
+    resources:
+      limits:
+        memory: 250Mi
+  - image: nginx
+    name: nginx
+    resources:
+      limits:
+        memory: 250Mi
+  - image: mysql
+    name: mysql
+    resources:
+      limits:
+        memory: 250Mi
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}</code></pre>
                     <strong>Q10. List all the pods in your namespace sorted by name.</strong><br>
-                    <strong>Q10. List all the pods in your namespace sorted by name. at directory “/export/volume” copy
-                        the pod spec into /opt/yourname/shellvolume</strong><br>
+                    <pre><code>$ kubectl get po --sort-by=.metadata.name</code></pre>
+                    <strong>Q10. List all the pods in your namespace sorted by name at directory “/export/volume” and
+                        Copy the pod spec into /opt/yourname/shellvolume</strong><br>
+                    <pre><code>
+                        $ kubectl get po --sort-by=.metadata.name > /export/volume
+                        $ kubectl get po -o yaml > /opt/yourname/shellvolume
+                    </code></pre>
                     <strong>Q12. To the earlier pod “shell” attach liveliness probe to check the file
                         /export/volume/app.log being available.</strong><br>
+                    <pre><code>
+                        
+                    </code></pre>
                     <strong>Q13. Setup init container into shell pod that got created just now, to create a file
                         /export/volume/app.log empty file before the busybox container is run.</strong><br>
-                    <strong>Q14. Create a secret “
-                        <yourname>-secret” with user=
-                            <yourname>, secret=”SOMESECRET” edit the “shell” pod to have the above secret imported as a
-                                volume at /opt/mysecretvolume, and MYSECRET environment defined to map to key secret in
-                                “
-                                <yourname>-secret”
+                    <strong>Q14. Create a secret “myctl-secret” with user=myctl, secret=”SOMESECRET” edit the “shell”
+                        pod to have the above secret imported as a volume at /opt/mysecretvolume, and MYSECRET
+                        environment defined to map to key secret in “myctl-secret”
                     </strong><br>
-                    <strong>Q15. Create a persistent Volume named “
-                        <yourname>”
-                            specification that defines a volume for 10Gi mapping to hostpath /opt/
-                            <yourname>
+                    <strong>Q15. Create a persistent Volume named “myctl” specification that defines a volume for 10Gi
+                        mapping to hostpath /opt/myctl
                     </strong><br>
-                    <strong>Q16. Take the etcd database snapshot saved into file /opt/
-                        <yourname>/etcd snapshotthe certificates and keys are available in /opt/certs directory.
+                    <strong>Q16. Take the etcd database snapshot saved into file /opt/myctl/etcd snapshotthe
+                        certificates and keys are available in /opt/certs directory.
                     </strong><br>
                     <strong>Q17. Get the dns records for the service and pods for the deployment “redis”
-                        copied to file /opt/
-                        <yourname>/dnsrecord.redis
+                        copied to file /opt/myctl/dnsrecord.redis
                     </strong><br>
                     <strong>Q18. List all the pods that are serviced by the service “webservice”and copy the output in
-                        /opt/
-                        <yourname>/webservice.targets
+                        /opt/myctl/webservice.targets
                     </strong><br>
                 </div>
                 <div>
