@@ -289,41 +289,137 @@ status: {}
                     <p>
                         Create a job that runs every 3 minutes and prints out the current time.
                     </p>
+                    <pre><code>Not in Syllabus</code></pre>
                     <strong>Q10. Create a parallel Job</strong>
                     <p>
                         Create a job that runs 80 times, with 5 containers at a time, and prints "Hello parallel world".
                     </p>
+                    <pre><code>Not in Syllabus</code></pre>
                     <strong>Q11. Create a service </strong>
                     <p>
                         Create a service that uses an external load balancer and points to a 3 pod cluster running
                         nginx.
                     </p>
+                    <pre><code>
+                        # Create a 3 pod deployment of nginx in a file
+                        $ kubectl create  deploy lb-nginx --image nginx --dry-run -o yaml > lb-nginx.yaml
+
+                        # Scale deployment to 3 replicas
+                        $ kubectl scale deploy lb-nginx --replicas=3
+
+                        # Create a external loadbalancer to point 3 pod deployment
+                        $ kubectl expose deploy lb-nginx --name=nginx-service --type=LoadBalancer --port=80 --dry-run=client -o yaml > nginx-service.yaml
+                    </code></pre>
                     <strong>Q12. Create a horizontal autoscaling group</strong>
                     <p>
                         Create a horizontal autoscaling group that should start with 2 pods and scale when CPU usage is
-                        over
-                        50%.
+                        over 50%.
                     </p>
+                    <pre><code>Not in Syllabus</code></pre>
                     <strong>Q13. Create pods with restricted resource usage</strong>
                     <ol>
-                        <li>Create 2 pods that has a CPU limit of 2 and should request 0.5 CPU when started.</li>
+                        <li>Create a pods that has a CPU limit of 2 and should request 0.5 CPU when started.</li>
                         <li>Limit the memory usage for one of the pod to 100Mb.</li>
                     </ol>
+                    <pre><code>
+$ kubectl run nginx --image nginx --requests=cpu=.5,memory=100 --limits=cpu=2,memory=100
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  containers:
+  - image: nginx
+    name: nginx
+    resources:
+      limits:
+        cpu: "2"
+        memory: "100"
+      requests:
+        cpu: 500m
+        memory: "100"
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+                    </code></pre>
                     <strong>Q14. Create an init container</strong>
                     <p>
                         Create a nginx pod with an init container that populates the webroot of nginx pod with the
                         homepage of <i>Kubernauts.io</i>
                     </p>
+                    <pre><code>
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: myapp-container
+    image: busybox:1.28
+    command: ['sh', '-c', 'echo The app is running! && sleep 3600']
+  initContainers:
+  - name: init-myservice
+    image: busybox:1.28
+    command: ['sh', '-c', "until nslookup myservice.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for myservice; sleep 2; done"]
+  - name: init-mydb
+    image: busybox:1.28
+    command: ['sh', '-c', "until nslookup mydb.$(cat /var/run/secrets/kubernetes.io/serviceaccount/namespace).svc.cluster.local; do echo waiting for mydb; sleep 2; done"]
+                    </code></pre>
                     <strong>Q15. Create a pod with specific UID</strong>
                     <p>
                         Create a pod that runs all processes as user 1000.
                     </p>
+                    <pre><code>
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: sc-nginx
+  name: sc-nginx
+spec:
+  securityContext:
+    runAsUser: 1000
+  containers:
+  - image: nginx
+    name: sc-nginx
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+                    </code></pre>
                     <strong>Q16. Create a namespace</strong>
                     <ol>
                         <li>Run a pod in the new namespace.</li>
                         <li>Put memory limits on the namespace.</li>
                         <li>Limit pods to 2 persistent volumes in this namespace.</li>
                     </ol>
+                    <pre><code>
+# create a namespace
+$ kubectl create ns default-nd
+
+# set limits
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-limit-range
+spec:
+  limits:
+  - default:
+      cpu: 1
+    defaultRequest:
+      cpu: 0.5
+    type: Container
+
+# Limit pods to 2 persistent volumes in this namespace
+Not in Scope
+                    </code></pre>
                     <strong>Q17. Write an ingress rule that redirects calls to /foo to one service and to /bar to
                         another</strong>
                     <strong>Q18. Write a service that exposes nginx on a nodeport</strong>
@@ -333,6 +429,15 @@ status: {}
                         <li>Change it to use an external IP.</li>
                         <li>Change it to use a load balancer.</li>
                     </ol>
+                    <pre>
+    <code>
+# Create a service for nginx pod on nodeport
+$ kubectl expose po nginx --name=nginx-expose --type=NodePort --port=80
+
+# Scale the service
+Not Understand
+    </code>
+</pre>
                     <strong>Q19. Backup the etcd database</strong>
                     <ol>
                         <li>Backup the etcd database at <i>/opt/baks/etcd0001/ .</i></li>
@@ -373,6 +478,9 @@ $ ETCDCTL_API=3 etcdctl --endpoints=https://[127.0.0.1]:2379 \
                     <p>
                         Audit the whole cluster to determine the cluster health and activities.
                     </p>
+                    <pre><code>
+                        Node in Scope
+                    </code></pre>
                 </div>
                 <div>
                     <h4 style="color: green;">Question Set 2:</h4>
