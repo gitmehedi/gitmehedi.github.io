@@ -83,8 +83,17 @@
                 </div>
             </header>
 
+
             <div class="blog-post-body">
-                <div>
+                <h2>Questions Sets</h2>
+                <ul>
+                    <li><a href="#question-1">Questions Set 1</a></li>
+                    <li><a href="#question-2">Questions Set 2</a></li>
+                    <li><a href="#question-3">Questions Set 3</a></li>
+                    <li><a href="#question-4">Questions Set 4</a></li>
+                    <li><a href="#question-5">Questions Set 5</a></li>
+                </ul>
+                <div id="question-1">
                     <h4 style="color: green;">Question Set 1: </h4>
                     <strong>Q1. Bootstrap a Kubernetes v1.10 cluster using kubeadm</strong>
                     <p>You need to bootstrap a Kubernetes v1.10 cluster with one master and one worker node using
@@ -482,46 +491,359 @@ $ ETCDCTL_API=3 etcdctl --endpoints=https://[127.0.0.1]:2379 \
                         Node in Scope
                     </code></pre>
                 </div>
-                <div>
+                <div id="question-2">
                     <h4 style="color: green;">Question Set 2:</h4>
-                    <strong>Q1. Create a initContainers</strong><br>
-                    <p>With image busybox which will run fix time before nginx pod
-                        ready.</p>
-                    <strong>Q2. List all pod which using the service nginx-service.</strong><br>
-                    <pre><code>
+                    <div>
+                        <strong>Q1. Create a initContainers</strong><br>
+                        <p>With image busybox which will run fix time before nginx pod ready.</p>
+                        <pre><code>
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: nginx
+  name: nginx
+spec:
+  initContainers:
+  - command:
+    - sleep
+    - "60"
+    image: busybox
+    name: busybox
+  containers:
+  - image: nginx
+    name: nginx
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+                        </code></pre>
+                    </div>
+                    <div>
+                        <strong>Q2. List all pod which using the service nginx-service.</strong><br>
+                        <pre><code>
 $ for i in $(kg svc --no-headers | awk '{print $7}'); do kg po -l $i; done
 $ kg po --show-labels | grep -F -f <(kg svc --no-headers | awk '{print $7}')
 </code></pre>
-                    <strong>Q3. Add security context' capabilites on a container which will set date on
-                        pod.</strong><br>
-                    <strong>Q4. Create a daemon service name nginx with proper tolleration.</strong><br>
-                    <strong>Q5. Create a new deployment named 'red' with the NGINX image and 3 replicas, and ensure it
-                        gets placed on the master node only. Use the right operator.</strong><br>
-                    <strong>Q6. Create a pod with selected any of the images. Image name redis,nginx</strong><br>
-                    <strong>Q7. Create deployment with name deploy-nginx which accept traffic with service
-                        service-nginx.</strong><br>
-                    <strong>Q8. get all the cluster users and write in a filename /var/answer/UJDHH.TXT</strong><br>
-                    <strong>Q9. Create a secret with name env-secret with value password=user1 and use it in pod
-                        envFrom.</strong><br>
-                    <strong>Q10. To update a cluster we need to take the node down. Down the K82 .</strong><br>
-                    <strong>Q11. Take a ETCD cluster backup on location /tmp/cluster.bk. All the required values
-                        given.</strong><br>
-                    <strong>Q12. A pod deployed cluster-pod in the system. Create a service cluster-service in which POD
-                        will be access.</strong><br>
-                    <strong>Q13. Create a egress rule to a pod egree-pod where ip does not need to mention.</strong><br>
-                    <strong>Q14. Write dns information to the file /var/answer/HDKDKD.txt from the pod log-pod.</strong><br>
-                    <strong>Q15. Reshedule pod nginx-pod with image nginx in node k82 in namespace
-                        cluster-scheduler.</strong><br>
-                    <strong>Q16. Set labels with proper information ???</strong><br>
-                    <strong>Q17. Create a deployment with image nginx and name will be dep-nginx. Upgrade the image of
-                        the deployment nginx-12.04. After proper upgrade backto the previous version of the image
-                        nginx.</strong><br>
-                    <strong>Q18. Add a ConfigMap password with configuring in volume. ConfigMap value is APP_COLOR=RED
-                        and volume name is color-volume.</strong><br>
-                    <strong>Q19. Create a volume pv-log with empty with claim name pvc-log and mount in pod redis with
-                        image redis.</strong><br>
+                    </div>
+                    <div>
+                        <strong>Q3. Add security context' capabilites on a container which will set date on
+                            pod.</strong><br>
+                        <pre><code>
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: sc-nginx
+  name: sc-nginx
+spec:
+  containers:
+  - image: nginx
+    name: sc-nginx
+    resources: {}
+    securityContext:
+      capabilities:
+        add:
+        - SYS_TIME
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+                        </code></pre>
+                    </div>
+                    <div>
+                        <strong>Q4. Create a daemon service name nginx with proper tolleration.</strong><br>
+                        <pre><code>
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  labels:
+    app: ds-nginx
+  name: ds-nginx
+spec:
+  selector:
+    matchLabels:
+      app: ds-nginx
+  template:
+    metadata:
+      labels:
+        app: ds-nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+      tolerations:
+      - key: 'node-role.kubernetes.io/master'
+        operator: 'Exists'
+                        </code></pre>
+                    </div>
+                    <div>
+                        <strong>Q5. Create a new deployment named 'red' with the NGINX image and 3 replicas, and ensure
+                            it gets placed on the master node only. Use the right operator.</strong>
+                        <pre>
+                            <code>
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ds-nginx
+  name: ds-nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ds-nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ds-nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+      tolerations:
+      - key: 'node-role.kubernetes.io/master'
+        operator: 'Exists'
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q6. Create a pod with selected any of the images. Image name redis,nginx</strong>
+                        <pre>
+                            <code>
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: redis
+  name: redis
+spec:
+  containers:
+  - image: redis
+    name: redis
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q7. Create deployment with name deploy-nginx which accept traffic with service
+                            service-nginx.</strong>
+                        <pre>
+                            <code>
+$ kcd deploy dp-nginx --image nginx
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: dp-nginx
+  name: dp-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dp-nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: dp-nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        resources: {}
+status: {}
+
+# create service
+$ k expose deploy dp-nginx --type=ClusterIP --name=dp-service --port=80 --dry-run=client -o yaml
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: dp-nginx
+  name: dp-service
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: dp-nginx
+  type: ClusterIP
+status:
+  loadBalancer: {}
+
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q8. Get all the cluster users and write in a filename /var/answer/UJDHH.TXT</strong>
+                        <pre>
+                            <code>
+$ k config view -o jsonpath='{.users[*].name}' > /var/UJDHH.TXT
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q9. Create a secret with name env-secret with value password=user1 and use it in pod
+                            envFrom.</strong>
+                        <pre>
+                            <code>
+# Create a secret
+$ kc secret generic env-secret --from-literal=password=user1 --dry-run=client -o yaml
+apiVersion: v1
+data:
+  password: dXNlcjE=
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: env-secret
+
+# Consume secret in envFrom  in  a pod nginx
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: secret-nginx
+  name: secret-nginx
+spec:
+  containers:
+  - image: nginx
+    name: secret-nginx
+    resources: {}
+    envFrom:
+    - secretRef:
+        name: env-secret
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q10. To update a cluster we need to take the node down. Down the K82 .</strong>
+                        <pre>
+                            <code>
+$ kubectl drain node K82
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q11. Take a ETCD cluster backup on location /tmp/cluster.bk. All the required values
+                            given.</strong>
+                        <pre>
+                            <code>
+$ ETCDCTL_API=3 etcdctl --endpoints=https://[127.0.0.1]:2379 \
+                        --cacert=/etc/kubernetes/pki/etcd/ca.crt \
+                        --cert=/etc/kubernetes/pki/etcd/server.crt \
+                        --key=/etc/kubernetes/pki/etcd/server.key \
+                        snapshot save /tmp/cluster.bk
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q12. A pod deployed cluster-pod in the system. Create a service cluster-service in
+                            which POD will be access.</strong>
+                        <pre>
+                            <code>
+$ kcd service clusterip cluster-service --tcp=80:8080
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: cluster-service
+  name: cluster-service
+spec:
+  ports:
+  - name: 80-8080
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: cluster-service
+  type: ClusterIP
+status:
+  loadBalancer: {}
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q13. Create a egress rule to a pod egress-pod where ip does not need to mention.</strong>
+                        <pre>
+                            <code>
+
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q14. Write dns information to the file /var/answer/HDKDKD.txt from the pod
+                            log-pod.</strong>
+                        <pre>
+                            <code>
+
+                            </code>
+                        </pre>
+                    </div>
+                    <div><strong>Q15. Schedul a pod nginx-pod with image nginx in node k82 in namespace
+                        cluster-scheduler.</strong>
+                        <pre>
+                            <code>
+
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q16. Set labels with proper information ???</strong>
+                        <pre>
+                            <code>
+
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q17. Create a deployment with image nginx and name will be dep-nginx. Upgrade the image
+                            of the deployment nginx-12.04. After proper upgrade backto the previous version of the image
+                            nginx.</strong>
+                        <pre>
+                            <code>
+
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q18. Add a ConfigMap password with configuring in volume. ConfigMap value is
+                            APP_COLOR=RED and volume name is color-volume.</strong>
+                        <pre>
+                            <code>
+
+                            </code>
+                        </pre>
+                    </div>
+                    <div>
+                        <strong>Q19. Create a volume pv-log with empty with claim name pvc-log and mount in pod redis
+                            with image redis.</strong>
+                        <pre>
+                            <code>
+
+                            </code>
+                        </pre>
+                    </div>
                 </div>
-                <div>
+                <div id="question-3">
                     <h4 style="color: green;">Question Set 3:</h4>
                     <strong>Q1. Create a pod named “web” using image nginx:1.11.9-alpine, on ports 80 and
                         443</strong><br>
@@ -684,7 +1006,7 @@ status: {}</code></pre>
                         /opt/myctl/webservice.targets
                     </strong><br>
                 </div>
-                <div>
+                <div id="question-4">
                     <h4 style="color: green;">Question Set 4:</h4>
                     <strong>Q1. Create a pod redis version 5.0-rc4-alpine named “mycache”</strong><br>
                     <strong>Q2. Upgrade the pod to use 5.0-rc-alpine and save the pod spec as p2
@@ -718,7 +1040,7 @@ status: {}</code></pre>
                     <strong>Q15. List all objects in your namespace that has label “ques=p5”
                         Find all pods that are serviced by your webservice.</strong><br>
                 </div>
-                <div>
+                <div id="question-5">
                     <h4 style="color: green;">Question Set 5:</h4>
                     <strong>Q1. Create a node that has a SSD and label it as such.</strong><br>
                     <strong>Q2. Create a pod that is only scheduled on SSD nodes. </strong><br>
