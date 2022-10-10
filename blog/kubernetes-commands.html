@@ -549,21 +549,21 @@ Usage:
                        <code>
 
 $ alias k="kubectl"
-$ alias kn="kubectl get nodes -o wide"
-$ alias kp="kubectl get pods -o wide"
-$ alias kd="kubectl get deployment -o wide"
-$ alias ks="kubectl get svc -o wide"
+$ alias kg="kubectl get -o wide"
+$ alias kd="kubectl describe"
+$ alias kdl="kubectl delete"
 
+$ alias kc="kubectl create"
+$ alias kcd="kubectl create --dry-run=client -o yaml"
 
-$ alias ke="kubectl explain --recursive"
-$ alias kdp="kubectl describe pod"
-$ alias kdd="kubectl describe deployment"
-$ alias kds="kubectl describe service"
-$ alias kdn="kubectl describe node"
-$ alias kcr="kubectl run --dry-run=client -o yaml --generator=run-pod/v1"
-$ alias kcc="kubectl create --dry-run=client -o yaml"
+$ alias kx="kubectl explain --recursive"
+$ alias kr="kubectl run"
+$ alias krd="kubectl run --dry-run=client -o yaml"
+$ alias kl="kubectl logs"
+$ alias kex="kubectl exec -it"
+$ alias ks="kubectl scale"
 
-$ alias k="kubectl" kg="kubectl get -o wide" kd="kubectl describe" kdl="kubectl delete" krd="kubectl run --dry-run=client -o yaml" kcd="kubectl create --dry-run=client -o yaml" kc="kubectl create" kx="kubectl explain --recursive" kr="kubectl run" krd="kubectl run --dry-run -o yaml"
+$ alias k="kubectl" kg="kubectl get -o wide" kd="kubectl describe" kdl="kubectl delete" kc="kubectl create" kcd="kubectl create --dry-run=client -o yaml" kexp="kubectl explain --recursive" kr="kubectl run" krd="kubectl run --dry-run=client -o yaml" kl="kubectl logs" kex="kubectl exec -it" ks="kubectl scale"
 
 					    </code>
 				    </pre>
