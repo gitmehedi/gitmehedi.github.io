@@ -540,12 +540,11 @@ Usage:
                     <h3 class="mt-5 mb-3">Necessary Kubernetes Command for Alias</h3>
                     <pre>
                        <code>
-
+# Add Kubernetes Alias for OS
 $ alias k="kubectl"
-$ alias kn="kubectl get nodes -o wide"
-$ alias kp="kubectl get pods -o wide"
-$ alias kd="kubectl get deployment -o wide"
-$ alias ks="kubectl get svc -o wide"
+$ alias kg="kubectl get -o wide"
+$ alias kd="kubectl describe"
+$ alias kdl="kubectl delete"
 
 $ alias ke="kubectl explain --recursive"
 $ alias kdp="kubectl describe pod"
@@ -559,7 +558,6 @@ $ alias kex="kubectl exec -it"
 $ alish ks="kubectl scale"
 
 $ alias k="kubectl" kg="kubectl get -o wide" kd="kubectl describe" kdl="kubectl delete" krd="kubectl run --dry-run=client -o yaml" kcd="kubectl create --dry-run=client -o yaml" kc="kubectl create" kx="kubectl explain --recursive" kr="kubectl run" krd="kubectl run --dry-run -o yaml" ka="kubectl apply -f" alias kex="kubectl exec -it" alish ks="kubectl scale"
-
 					    </code>
 				    </pre>
                 </div>
