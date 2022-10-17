@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>swapon - Kubernetes Commands for Resource Generation</title>
 
@@ -32,74 +33,70 @@
 
 <body>
 
-<header class="header text-center" style="">
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <header class="header text-center" style="">
+        <nav class="navbar navbar-expand-lg navbar-dark">
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-                aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div id="navigation" class="collapse navbar-collapse flex-column">
-            <div class="profile-section pt-3 pt-lg-0">
-                <img class="profile-image mb-3 rounded-circle mx-auto" src="../assets/images/profile.jpg" alt="image">
-                <h1 class="blog-name pt-lg-4 mb-0" style="margin-top: 0px;"><a href="index.html">Mehedi Hasan</a></h1>
-                <h3 class="bio mb-3">DevOps, Python, Odoo, Docker, Kubernetes
-                </h3>
-                <ul class="social-list list-inline py-3 mx-auto">
-                    <li class="list-inline-item"><a target="_blank" href="https://www.linkedin.com/in/nopaws/"><i
+            <div id="navigation" class="collapse navbar-collapse flex-column">
+                <div class="profile-section pt-3 pt-lg-0">
+                    <img class="profile-image mb-3 rounded-circle mx-auto" src="../assets/images/profile.jpg" alt="image">
+                    <h1 class="blog-name pt-lg-4 mb-0" style="margin-top: 0px;"><a href="index.html">Mehedi Hasan</a></h1>
+                    <h3 class="bio mb-3">DevOps, Python, Odoo, Docker, Kubernetes
+                    </h3>
+                    <ul class="social-list list-inline py-3 mx-auto">
+                        <li class="list-inline-item"><a target="_blank" href="https://www.linkedin.com/in/nopaws/"><i
                             class="fab fa-linkedin-in fa-fw"></i></a></li>
-                    <li class="list-inline-item"><a target="_blank" href="https://github.com/gitmehedi"><i
+                        <li class="list-inline-item"><a target="_blank" href="https://github.com/gitmehedi"><i
                             class="fab fa-github-alt fa-fw"></i></a></li>
-                    <li class="list-inline-item"><a target="_blank" href="https://stackoverflow.com/cv/mdmehedi"><i
+                        <li class="list-inline-item"><a target="_blank" href="https://stackoverflow.com/cv/mdmehedi"><i
                             class="fab fa-stack-overflow fa-fw"></i></a></li>
-                </ul>
-                <hr>
-            </div>
-
-            <ul class="navbar-nav flex-column text-left">
-                <li class="nav-item active">
-                    <a class="nav-link" href="../index.html"><i class="fas fa-home fa-fw mr-2"></i>Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../about.html"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
-
-<div class="main-wrapper">
-    <article class="blog-post px-3 py-5 p-md-5">
-        <div class="container">
-            <header class="blog-post-header">
-                <h2 class="title mb-2">Kubernetes Commands for Resource Generation</h2>
-                <div class="meta mb-3">
-                    <span class="date">Published on 18/06/2020</span>
-                    <span class="time">5 min read</span>
+                    </ul>
+                    <hr>
                 </div>
-            </header>
 
-            <div class="blog-post-body">
-                <figure class="blog-banner" style="text-align: center;">
-                    <img class="img-fluid" src="../assets/images/blog/kubernetes.png" alt="image">
-                </figure>
-                <p>In kubernetes, command can be divided into two categories depending on how command generate
-                    resources. Both categories are used depending on resource generation requirements.</p>
-                <ol>
-                    <li>Declarative Approach</li>
-                    <li>Imperative Approach</li>
-                </ol>
+                <ul class="navbar-nav flex-column text-left">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../index.html"><i class="fas fa-home fa-fw mr-2"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../about.html"><i class="fas fa-user fa-fw mr-2"></i>About Me</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-                <h3 class="mt-5 mb-3">1. Declarative Approach</h3>
-                Declarative approach used when a definition file needed to declare and using that file kubernetes
-                generate in the cluster.
-                Two steps follow to accomplish in declarative approach.
-                <ol>
-                    <li>Create a definition file</li>
-                    <li>Use command to generate the resources</li>
-                </ol>
-                <pre>
+    <div class="main-wrapper">
+        <article class="blog-post px-3 py-5 p-md-5">
+            <div class="container">
+                <header class="blog-post-header">
+                    <h2 class="title mb-2">Kubernetes Commands for Resource Generation</h2>
+                    <div class="meta mb-3">
+                        <span class="date">Published on 18/06/2020</span>
+                        <span class="time">5 min read</span>
+                    </div>
+                </header>
+
+                <div class="blog-post-body">
+                    <figure class="blog-banner" style="text-align: center;">
+                        <img class="img-fluid" src="../assets/images/blog/kubernetes.png" alt="image">
+                    </figure>
+                    <p>In kubernetes, command can be divided into two categories depending on how command generate resources. Both categories are used depending on resource generation requirements.</p>
+                    <ol>
+                        <li>Declarative Approach</li>
+                        <li>Imperative Approach</li>
+                    </ol>
+
+                    <h3 class="mt-5 mb-3">1. Declarative Approach</h3>
+                    Declarative approach used when a definition file needed to declare and using that file kubernetes generate in the cluster. Two steps follow to accomplish in declarative approach.
+                    <ol>
+                        <li>Create a definition file</li>
+                        <li>Use command to generate the resources</li>
+                    </ol>
+                    <pre>
                     <code>
 # 1. define a definition file nginx-deployment.yaml
 apiVersion: apps/v1
@@ -126,30 +123,26 @@ spec:
 $ kubectl create -f nginx-deployment.yaml
                     </code>
                 </pre>
-                <h3 class="mt-5 mb-3">2. Imperative Approach</h3>
-                Imperative approach is the way resource can be created using command line instruction without defining
-                any resource. Limited resource can be created using imperative command. In fact all the allowed resource
-                does not create with all properties. But imperative command is very helpful for faster your work
-                process. Additional properties can be added using after generation of definition file from imperative
-                command. Command are used for imperative command.
-                <pre>
+                    <h3 class="mt-5 mb-3">2. Imperative Approach</h3>
+                    Imperative approach is the way resource can be created using command line instruction without defining any resource. Limited resource can be created using imperative command. In fact all the allowed resource does not create with all properties. But imperative
+                    command is very helpful for faster your work process. Additional properties can be added using after generation of definition file from imperative command. Command are used for imperative command.
+                    <pre>
                     <code>
 $ kubectl run
 $ kubectl create
                     </code>
-                </pre>
-                Imperative command supports total 16 resource generation.
-                <ul>
-                    <li>Kubectl Run: 1</li>
-                    <li>Kubectl Create: 15</li>
-                </ul>
-                <strong>KUBECTL RUN supports only 1 resource.</strong>
-                <pre>
+                </pre> Imperative command supports total 16 resource generation.
+                    <ul>
+                        <li>Kubectl Run: 1</li>
+                        <li>Kubectl Create: 15</li>
+                    </ul>
+                    <strong>KUBECTL RUN supports only 1 resource.</strong>
+                    <pre>
                     <code>$ kubectl run front-end --image=nginx --port=80</code>
                 </pre>
 
-                <h4>Details</h4>
-                <pre>
+                    <h4>Details</h4>
+                    <pre>
                     <code>
 Examples:
   # Start a hazelcast pod and set environment variables "DNS_DOMAIN=cluster" and "POD_NAMESPACE=default" in thecontainer.
@@ -181,8 +174,8 @@ Options:
                     </code>
                 </pre>
 
-                <strong>KUBECTL CREATE supports 15 resources</strong>
-                <pre>
+                    <strong>KUBECTL CREATE supports 15 resources</strong>
+                    <pre>
                     <code>
 
   clusterrole         Create a ClusterRole.
@@ -202,9 +195,9 @@ Options:
   serviceaccount      Create a service account with the specified name
                     </code>
                 </pre>
-                <h4>Usage of imperative commands</h4>
-                <h5>ClusterRole</h5>
-                <pre>
+                    <h4>Usage of imperative commands</h4>
+                    <h5>ClusterRole</h5>
+                    <pre>
                     <code>
 Examples:
   # Create a ClusterRole named "pod-reader" that allows user to perform "get", "watch" and "list" on pods
@@ -237,8 +230,8 @@ Usage:
 [--dry-run=server|client|none] [options]
                     </code>
                 </pre>
-                <h5>ClusterRole</h5>
-                <pre>
+                    <h5>ClusterRole</h5>
+                    <pre>
                     <code>
 Create a ClusterRoleBinding for a particular ClusterRole.
 
@@ -258,8 +251,8 @@ Usage:
                     </code>
                 </pre>
 
-                <h5>ClusterRole</h5>
-                <pre>
+                    <h5>ClusterRole</h5>
+                    <pre>
                     <code>
 Create a configmap based on a file, directory, or specified literal value.
 
@@ -302,8 +295,8 @@ Usage:
                     </code>
                 </pre>
 
-                <h5>CronJob</h5>
-                <pre>
+                    <h5>CronJob</h5>
+                    <pre>
                     <code>
 Create a cronjob with the specified name.
 
@@ -326,8 +319,8 @@ Usage:
 
                     </code>
                 </pre>
-                <h5>Deployment</h5>
-                <pre>
+                    <h5>Deployment</h5>
+                    <pre>
                     <code>
 Create a deployment with the specified name.
 
@@ -346,8 +339,8 @@ Usage:
 
                     </code>
                 </pre>
-                <h5>Namespace</h5>
-                <pre>
+                    <h5>Namespace</h5>
+                    <pre>
                     <code>
 Create a namespace with the specified name.
 
@@ -363,8 +356,8 @@ Usage:
 
                     </code>
                 </pre>
-                <h5>Poddisruptionbudget</h5>
-                <pre>
+                    <h5>Poddisruptionbudget</h5>
+                    <pre>
                     <code>
 Create a pod disruption budget with the specified name, selector, and desired minimum available pods
 
@@ -390,8 +383,8 @@ Usage:
 
                     </code>
                 </pre>
-                <h5>PriorityClass</h5>
-                <pre>
+                    <h5>PriorityClass</h5>
+                    <pre>
                     <code>
 Create a priorityclass with the specified name, value, globalDefault and description
 
@@ -419,8 +412,8 @@ Usage:
 
                     </code>
                 </pre>
-                <h5>Quota</h5>
-                <pre>
+                    <h5>Quota</h5>
+                    <pre>
                     <code>
 Create a resourcequota with the specified name, hard limits and optional scopes
 
@@ -442,8 +435,8 @@ Usage:
   kubectl create quota NAME [--hard=key1=value1,key2=value2] [--scopes=Scope1,Scope2] [--dry-run=server|client|none][options]
                     </code>
                 </pre>
-                <h5>Role</h5>
-                <pre>
+                    <h5>Role</h5>
+                    <pre>
                     <code>
 Create a role with single rule.
 
@@ -470,8 +463,8 @@ Usage:
 
                     </code>
                 </pre>
-                <h5>RoleBinding</h5>
-                <pre>
+                    <h5>RoleBinding</h5>
+                    <pre>
                     <code>
 Create a RoleBinding for a particular Role or ClusterRole.
 
@@ -491,8 +484,8 @@ Usage:
 
                     </code>
                 </pre>
-                <h5>Secret</h5>
-                <pre>
+                    <h5>Secret</h5>
+                    <pre>
                     <code>
 Create a secret using specified subcommand.
 
@@ -506,8 +499,8 @@ Usage:
 
                     </code>
                 </pre>
-                <h5>Service</h5>
-                <pre>
+                    <h5>Service</h5>
+                    <pre>
                     <code>
 Create a service using specified subcommand.
 
@@ -525,8 +518,8 @@ Usage:
 
                     </code>
                 </pre>
-                <h5>ServiceAccount</h5>
-                <pre>
+                    <h5>ServiceAccount</h5>
+                    <pre>
                     <code>
 Create a service account with the specified name.
 
@@ -544,8 +537,8 @@ Usage:
                 </pre>
 
 
-                <h3 class="mt-5 mb-3">Necessary Kubernetes Command for Alias</h3>
-                <pre>
+                    <h3 class="mt-5 mb-3">Necessary Kubernetes Command for Alias</h3>
+                    <pre>
                        <code>
 
 $ alias k="kubectl"
@@ -554,7 +547,6 @@ $ alias kp="kubectl get pods -o wide"
 $ alias kd="kubectl get deployment -o wide"
 $ alias ks="kubectl get svc -o wide"
 
-
 $ alias ke="kubectl explain --recursive"
 $ alias kdp="kubectl describe pod"
 $ alias kdd="kubectl describe deployment"
@@ -562,36 +554,39 @@ $ alias kds="kubectl describe service"
 $ alias kdn="kubectl describe node"
 $ alias kcr="kubectl run --dry-run=client -o yaml --generator=run-pod/v1"
 $ alias kcc="kubectl create --dry-run=client -o yaml"
+$ alias ka="kubectl apply -f"
+$ alias kex="kubectl exec -it"
+$ alish ks="kubectl scale"
 
-$ alias k="kubectl" kg="kubectl get -o wide" kd="kubectl describe" kdl="kubectl delete" krd="kubectl run --dry-run=client -o yaml" kcd="kubectl create --dry-run=client -o yaml" kc="kubectl create" kx="kubectl explain --recursive" kr="kubectl run" krd="kubectl run --dry-run -o yaml"
+$ alias k="kubectl" kg="kubectl get -o wide" kd="kubectl describe" kdl="kubectl delete" krd="kubectl run --dry-run=client -o yaml" kcd="kubectl create --dry-run=client -o yaml" kc="kubectl create" kx="kubectl explain --recursive" kr="kubectl run" krd="kubectl run --dry-run -o yaml" ka="kubectl apply -f" alias kex="kubectl exec -it" alish ks="kubectl scale"
 
 					    </code>
 				    </pre>
-            </div>
-    </article>
+                </div>
+        </article>
 
 
-    <footer class="footer text-center py-2 theme-bg-dark">
-        <small class="copyright"> © 2020 by Mehedi Hasan | Powered by GitHub pages</small>
-    </footer>
-</div>
+        <footer class="footer text-center py-2 theme-bg-dark">
+            <small class="copyright"> © 2020 by Mehedi Hasan | Powered by GitHub pages</small>
+        </footer>
+        </div>
 
 
-<!-- Javascript -->
-<script src="../assets/plugins/jquery-3.4.1.min.js"></script>
-<script src="../assets/plugins/popper.min.js"></script>
-<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Javascript -->
+        <script src="../assets/plugins/jquery-3.4.1.min.js"></script>
+        <script src="../assets/plugins/popper.min.js"></script>
+        <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-<!-- Page Specific JS -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+        <!-- Page Specific JS -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
 
-<!-- Custom JS -->
-<script src="../assets/js/blog.js"></script>
+        <!-- Custom JS -->
+        <script src="../assets/js/blog.js"></script>
 
-<!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
-<script src="../assets/js/demo/style-switcher.js"></script>
+        <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+        <script src="../assets/js/demo/style-switcher.js"></script>
 
 
 </body>
-</html> 
 
+</html>
